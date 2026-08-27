@@ -66,9 +66,9 @@ src="https://www.facebook.com/tr?id=1739319417392027&ev=PageView&noscript=1"
 	<!-- TROCAR O VÍDEO — preload block: update ACCOUNT_ID, PLAYER_ID and VIDEO_ID below -->
 	<!-- ============================================================ -->
 <script>!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);</script>
-<link rel="preload" href="https://scripts.converteai.net/f93eec12-25d1-4295-afcb-b6ad233b41e1/players/6a89d2551ebfad0bbbd3c7eb/v4/player.js" as="script">
+<link rel="preload" href="https://scripts.converteai.net/f93eec12-25d1-4295-afcb-b6ad233b41e1/players/6a90c154f9d1c1ef1dc82810/v4/player.js" as="script">
 <link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
-<link rel="preload" href="https://cdn.converteai.net/f93eec12-25d1-4295-afcb-b6ad233b41e1/6a89d114f987f48e37ba38ef/main.m3u8" as="fetch">
+<link rel="preload" href="https://cdn.converteai.net/f93eec12-25d1-4295-afcb-b6ad233b41e1/6a90c06765ffcb4e197ce51c/main.m3u8" as="fetch">
 <link rel="dns-prefetch" href="https://cdn.converteai.net">
 <link rel="dns-prefetch" href="https://scripts.converteai.net">
 <link rel="dns-prefetch" href="https://images.converteai.net">
@@ -240,7 +240,7 @@ src="https://www.facebook.com/tr?id=1739319417392027&ev=PageView&noscript=1"
 
 					<!-- TROCAR O VÍDEO — player element: update id='vid-XXXXX' and ACCOUNT_ID/PLAYER_ID in s.src below -->
 					
-					<vturb-smartplayer id="vid-6a89d2551ebfad0bbbd3c7eb" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"><div class="vturb-player-placeholder" style="position: relative; width: 100%; padding: 125% 0 0; z-index: 0; background-color: black;"></div></vturb-smartplayer> <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/f93eec12-25d1-4295-afcb-b6ad233b41e1/players/6a89d2551ebfad0bbbd3c7eb/v4/player.js", s.async=!0,document.head.appendChild(s); </script>
+					<vturb-smartplayer id="vid-6a90c154f9d1c1ef1dc82810" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"><div class="vturb-player-placeholder" style="position: relative; width: 100%; padding: 125% 0 0; z-index: 0; background-color: black;"></div></vturb-smartplayer> <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/f93eec12-25d1-4295-afcb-b6ad233b41e1/players/6a90c154f9d1c1ef1dc82810/v4/player.js", s.async=!0,document.head.appendChild(s); </script>
 					
 					<!-- ============================================================ -->
 
@@ -1591,56 +1591,58 @@ src="https://www.facebook.com/tr?id=1739319417392027&ev=PageView&noscript=1"
 
 	
 <script>
-$(document).ready(function () {
-  var player = document.querySelector("vturb-smartplayer");
-  if (!player) return;
+		$(document).ready(function () {
+			var delaySeconds = 2918;
+			var player = document.querySelector("vturb-smartplayer");
 
-  const esperar = setInterval(() => {
-    if (!player.__config) return;
-    clearInterval(esperar);
+			player.addEventListener("player:ready", function () {
+				player.displayHiddenElements(delaySeconds, [".esconder"], { persist: true });
 
-    const verificar = setInterval(() => {
-      if (player.currentTime >= player.__config.pitchTime) {
-        clearInterval(verificar);
+				var initialized = false;
 
-        // Revela os elementos .esconder (equivalente ao "display: flex" do botão)
-        player.displayHiddenElements(0, [".esconder"], { persist: true });
+				var checkInterval = setInterval(function () {
+					var $target = $(".esconder:visible").first();
 
-        var initialized = false;
-        var checkInterval = setInterval(function () {
-          var $target = $(".esconder:visible").first();
-          if ($target.length && !initialized) {
-            initialized = true;
-            clearInterval(checkInterval);
+					if ($target.length && !initialized) {
+						initialized = true;
+						clearInterval(checkInterval);
 
-            // Scroll suave até #scrolldown
-            var $scrollTarget = $("#scrolldown");
-            if ($scrollTarget.length) {
-              $('html, body').animate({
-                scrollTop: $scrollTarget.offset().top
-              }, 800);
-            }
+						// Scroll suave
+						var $scrollTarget = $("#quiz");
+						if ($scrollTarget.length) {
+							$('html, body').animate({
+								scrollTop: $scrollTarget.offset().top
+							}, 800);
+						}
 
-            // Countdown dentro do .esconder
-            $target.find(".countdown").each(function () {
-              var $countdownEl = $(this);
-              var desiredValue = parseInt($countdownEl.text().trim().match(/\d+/)[0], 10);
-              var decrementTimer = setInterval(function () {
-                if (desiredValue > 48) {
-                  desiredValue = Math.max(desiredValue - 6, 48);
-                  $countdownEl.text(desiredValue);
-                } else {
-                  clearInterval(decrementTimer);
-                }
-              }, 8000);
-            });
-          }
-        }, 500);
-      }
-    }, 200);
-  }, 200);
-});
-</script>
+						var $scrollTarget = $("#scrolldown");
+						if ($scrollTarget.length) {
+							$('html, body').animate({
+								scrollTop: $scrollTarget.offset().top
+							}, 800);
+						}
+
+						// Manipular todos os .countdown dentro do .esconder visível
+						$target.find(".countdown").each(function () {
+							var $countdownEl = $(this);
+							var desiredValue = parseInt($countdownEl.text().trim().match(/\d+/)[0], 10);
+
+							var decrementTimer = setInterval(function () {
+								if (desiredValue > 48) {
+									desiredValue = Math.max(desiredValue - 6, 48);
+									$countdownEl.text(desiredValue);
+								} else {
+									clearInterval(decrementTimer);
+								}
+							}, 8000);
+						});
+
+					}
+				}, 500); // checa a cada 0.5s se ficou visível
+			});
+		});
+	</script>
+
 
 
 
