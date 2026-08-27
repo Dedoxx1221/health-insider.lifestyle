@@ -1591,56 +1591,63 @@ src="https://www.facebook.com/tr?id=1739319417392027&ev=PageView&noscript=1"
 
 	
 <script>
-		$(document).ready(function () {
-			var delaySeconds = 2918;
-			var player = document.querySelector("vturb-smartplayer");
+	$(document).ready(function () {
+    var delaySeconds = 2918;
+    var player = document.querySelector("vturb-smartplayer");
 
-			player.addEventListener("player:ready", function () {
-				player.displayHiddenElements(delaySeconds, [".esconder"], { persist: true });
+    if (!player) return;
 
-				var initialized = false;
+    // Impede que o evento seja configurado mais de uma vez
+    if (player.dataset.vturbInitialized === "true") return;
+    player.dataset.vturbInitialized = "true";
 
-				var checkInterval = setInterval(function () {
-					var $target = $(".esconder:visible").first();
+    player.addEventListener("player:ready", function () {
 
-					if ($target.length && !initialized) {
-						initialized = true;
-						clearInterval(checkInterval);
+        // Exibe os elementos no tempo definido
+        player.displayHiddenElements(delaySeconds, [".esconder"], {
+            persist: true
+        });
 
-						// Scroll suave
-						var $scrollTarget = $("#quiz");
-						if ($scrollTarget.length) {
-							$('html, body').animate({
-								scrollTop: $scrollTarget.offset().top
-							}, 800);
-						}
+        var initialized = false;
 
-						var $scrollTarget = $("#scrolldown");
-						if ($scrollTarget.length) {
-							$('html, body').animate({
-								scrollTop: $scrollTarget.offset().top
-							}, 800);
-						}
+        var checkInterval = setInterval(function () {
+            var $target = $(".esconder:visible").first();
 
-						// Manipular todos os .countdown dentro do .esconder visível
-						$target.find(".countdown").each(function () {
-							var $countdownEl = $(this);
-							var desiredValue = parseInt($countdownEl.text().trim().match(/\d+/)[0], 10);
+            if ($target.length && !initialized) {
+                initialized = true;
+                clearInterval(checkInterval);
 
-							var decrementTimer = setInterval(function () {
-								if (desiredValue > 48) {
-									desiredValue = Math.max(desiredValue - 6, 48);
-									$countdownEl.text(desiredValue);
-								} else {
-									clearInterval(decrementTimer);
-								}
-							}, 8000);
-						});
+                // Scroll
+                var $scrollTarget = $("#scrolldown");
 
-					}
-				}, 500); // checa a cada 0.5s se ficou visível
-			});
-		});
+                if ($scrollTarget.length) {
+                    $('html, body').animate({
+                        scrollTop: $scrollTarget.offset().top
+                    }, 800);
+                }
+
+                // Countdown
+                $target.find(".countdown").each(function () {
+                    var $countdownEl = $(this);
+                    var match = $countdownEl.text().trim().match(/\d+/);
+
+                    if (!match) return;
+
+                    var desiredValue = parseInt(match[0], 10);
+
+                    var decrementTimer = setInterval(function () {
+                        if (desiredValue > 48) {
+                            desiredValue = Math.max(desiredValue - 6, 48);
+                            $countdownEl.text(desiredValue);
+                        } else {
+                            clearInterval(decrementTimer);
+                        }
+                    }, 8000);
+                });
+            }
+        }, 500);
+    }, { once: true });
+});
 	</script>
 
 
