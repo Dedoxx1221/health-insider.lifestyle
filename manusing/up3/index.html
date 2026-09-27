@@ -642,19 +642,37 @@ a{text-decoration-thickness:1px!important;text-underline-offset:.1em}:where(.wp-
     <div class="spots-label">out of 200 available this week</div>
   </div>
 
-  <!-- WIDGET HOTMART -->
-  <div class="widget-section fade-in delay-3">
-    <div class="widget-label">✦ Reserve Your Spot Now ✦</div>
-    <div class="widget-wrapper">
-      <!-- HOTMART - Sales Funnel Widget -->
-  <!-- HOTMART - Sales Funnel Widget -->
+<!-- HOTMART - Sales Funnel Widget -->
 <!--- sales funnel container --->
-<div id="hotmart-sales-funnel"></div>
+<div id="hotmart-sales-funnel-2"></div>
 
-<!--- script load and setup --->
-<script src="https://checkout.hotmart.com/lib/hotmart-checkout-elements.js"></script>
 <script>
-checkoutElements.init('salesFunnel').mount('#hotmart-sales-funnel')
+(function() {
+  function loadHotmart2() {
+    if (typeof checkoutElements !== 'undefined') {
+      checkoutElements
+        .init('salesFunnel')
+        .mount('#hotmart-sales-funnel-2');
+    } else {
+      var script = document.createElement('script');
+      script.src = 'https://checkout.hotmart.com/lib/hotmart-checkout-elements.js';
+      script.async = true;
+      script.defer = true;
+
+      script.onload = function() {
+        if (typeof checkoutElements !== 'undefined') {
+          checkoutElements
+            .init('salesFunnel')
+            .mount('#hotmart-sales-funnel-2');
+        }
+      };
+
+      document.body.appendChild(script);
+    }
+  }
+
+  loadHotmart2();
+})();
 </script>
 <!-- HOTMART - Sales Funnel Widget -->
     </div>
