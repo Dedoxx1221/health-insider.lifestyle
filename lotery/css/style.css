@@ -1,0 +1,133 @@
+/* Estilos Gerais e de Performance */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    background-color: #f0f2f5;
+    color: #1c1e21;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    max-width: 480px;
+    margin: 0 auto
+}
+
+main {
+    flex: 1;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Header */
+.header {
+    background-color: #000;
+    color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+
+
+.header-icon {
+    fill: #fff;
+    width: 24px;
+    height: 24px;
+    margin-right: 15px;
+}
+
+.logo {
+    font-weight: bold;
+    width: 120px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.search-icon {
+    fill: #fff;
+    width: 24px;
+    height: 24px;
+}
+
+/* Ticker de Notícias */
+.news-ticker {
+    background-color: #ff0000;
+    color: #fff;
+    padding: 10px 0;
+    overflow: hidden;
+    white-space: nowrap;
+    margin-top: 0.5px;
+}
+
+.news-ticker p {
+    margin: 0;
+    display: inline-block;
+    padding-left: 100%;
+    animation: ticker-animation 20s linear infinite;
+}
+
+@keyframes ticker-animation {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+/* Conteúdo Principal */
+.main-content {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.video-text {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+.content-image {
+    margin-top: 20px;
+    max-width: 80%;
+    height: auto;
+}
+
+/* Footer */
+.footer {
+    width: 100vw; /* ocupa 100% da viewport */
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    background-color: #000000;
+    color: #f8f9fa;
+    text-align: center;
+    font-size: 12px;
+    border-top: 1px solid #e7e7e7;
+    padding: 20px 0;
+}
+
+.footer .container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.footer p {
+    margin: 0;
+}
