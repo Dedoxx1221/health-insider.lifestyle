@@ -961,38 +961,61 @@ src="https://www.facebook.com/tr?id=1099049829579862&ev=PageView&noscript=1"
 ></script>
 <script>
 (function () {
-    const PITCH_TIME = 37 * 60 + 55; // 37:55
-    let scrolled = false;
+    var PITCH_TIME = 37 * 60 + 55; // 37:55
+    var scrolled = false;
 
     function scrollToSixPots() {
         if (scrolled) return;
 
-        const target = document.querySelector('.atomicat-container-cd957f3');
+        var target = document.querySelector('.atomicat-container-cd957f3');
+        if (!target) return;
 
-        if (target) {
-            scrolled = true;
-            setTimeout(function () {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }, 300);
-        }
+        scrolled = true;
+
+        setTimeout(function () {
+            var top = target.getBoundingClientRect().top + window.pageYOffset;
+
+            window.scrollTo({
+                top: Math.max(0, top),
+                behavior: 'smooth'
+            });
+        }, 500);
     }
 
-    function checkVideoTime() {
-        if (scrolled) return;
+    function startWatchVideo() {
+        var attempts = 0;
 
-        const videos = document.querySelectorAll('video');
+        function waitForPlayer() {
+            if (typeof smartplayer === 'undefined' ||
+                !smartplayer.instances ||
+                !smartplayer.instances.length ||
+                !smartplayer.instances[0]) {
 
-        videos.forEach(function(video) {
-            if (video.currentTime >= PITCH_TIME) {
-                scrollToSixPots();
+                if (attempts >= 30) return;
+                attempts++;
+                setTimeout(waitForPlayer, 1000);
+                return;
             }
-        });
+
+            var player = smartplayer.instances[0];
+
+            player.on('timeupdate', function () {
+                if (scrolled) return;
+
+                if (player.video && player.video.currentTime >= PITCH_TIME) {
+                    scrollToSixPots();
+                }
+            });
+        }
+
+        waitForPlayer();
     }
 
-    setInterval(checkVideoTime, 500);
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', startWatchVideo);
+    } else {
+        startWatchVideo();
+    }
 })();
 </script>
 </body>
