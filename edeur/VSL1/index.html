@@ -959,6 +959,42 @@ src="https://www.facebook.com/tr?id=1099049829579862&ev=PageView&noscript=1"
   async
   defer
 ></script>
+<script>
+(function () {
+    const PITCH_TIME = 37 * 60 + 55; // 37:55
+    let scrolled = false;
+
+    function scrollToSixPots() {
+        if (scrolled) return;
+
+        const target = document.querySelector('.atomicat-container-cd957f3');
+
+        if (target) {
+            scrolled = true;
+            setTimeout(function () {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }, 300);
+        }
+    }
+
+    function checkVideoTime() {
+        if (scrolled) return;
+
+        const videos = document.querySelectorAll('video');
+
+        videos.forEach(function(video) {
+            if (video.currentTime >= PITCH_TIME) {
+                scrollToSixPots();
+            }
+        });
+    }
+
+    setInterval(checkVideoTime, 500);
+})();
+</script>
 </body>
 
 </html>
