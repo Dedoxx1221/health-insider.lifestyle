@@ -1,0 +1,146 @@
+<!DOCTYPE html><html lang="es"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Vida con mi Ángel</title>
+<meta name="robots" content="noindex, nofollow">
+<style>
+  :root{
+    --tinta:#0A0E20; --tinta2:#070A18;
+    --oro:#C69A46; --oro-claro:#E8C67A; --oro-luz:#F5E2B0;
+    --papel:#EDF2F7; --tenue:#93A0B8;
+    --verde:#1B9E45; --verde-alto:#25C95A;
+    --serif:"Didot","Playfair Display","Hoefler Text",Georgia,serif;
+    --sans:"Avenir Next","Helvetica Neue",-apple-system,Segoe UI,Roboto,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:var(--tinta);color:var(--papel);font-family:var(--sans);
+    -webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body{background:
+    radial-gradient(900px 500px at 50% -80px, rgba(198,154,70,.16), transparent 70%),
+    linear-gradient(180deg, var(--tinta) 0%, var(--tinta2) 100%);
+    background-attachment:fixed}
+  .env{max-width:520px;margin:0 auto;padding:16px 18px 64px}
+
+  .aviso{display:flex;align-items:center;gap:8px;justify-content:center;
+    border:1px solid rgba(198,154,70,.4);border-radius:999px;padding:7px 15px;
+    font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;
+    color:var(--oro-claro);margin-bottom:22px;background:rgba(198,154,70,.07)}
+  .punto{width:6px;height:6px;border-radius:50%;background:#E05A4A;
+    animation:latir 1.5s ease-in-out infinite}
+  @keyframes latir{0%,100%{opacity:1}50%{opacity:.2}}
+
+  h1{font-family:var(--serif);text-align:center;line-height:.98;margin-bottom:14px}
+  h1 .l1{display:block;font-size:30px;letter-spacing:.16em;color:var(--papel);font-weight:400}
+  h1 .l2{display:block;font-size:52px;letter-spacing:.05em;color:var(--oro-claro);font-weight:700;
+    text-shadow:0 2px 18px rgba(198,154,70,.35)}
+
+  .orn{display:flex;align-items:center;justify-content:center;gap:12px;margin:16px 0 12px}
+  .orn i{height:1px;width:70px;background:linear-gradient(90deg,transparent,rgba(198,154,70,.75))}
+  .orn i+i{background:linear-gradient(90deg,rgba(198,154,70,.75),transparent)}
+  .orn b{color:var(--oro);font-size:13px;line-height:1}
+
+  .bajada{font-family:var(--serif);font-style:italic;text-align:center;
+    font-size:19px;color:var(--oro-luz);margin-bottom:6px}
+
+  .lead{font-family:var(--serif);font-style:italic;text-align:center;
+    font-size:18px;line-height:1.32;color:var(--oro-luz);margin-bottom:11px}
+  .titular{font-family:var(--serif);text-align:center;font-weight:700;
+    font-size:32px;line-height:1.13;letter-spacing:.004em;color:var(--papel);
+    margin-bottom:16px;text-shadow:0 2px 20px rgba(198,154,70,.22)}
+  .titular em{font-style:normal;color:var(--oro-claro)}
+  @media (max-width:380px){ .titular{font-size:28px} .lead{font-size:16.5px} }
+  .bajada2{text-align:center;font-size:13.5px;color:var(--tenue);margin-bottom:20px;line-height:1.5}
+
+  .marco{position:relative;width:100%;max-width:400px;margin:0 auto;background:#000;border-radius:12px;
+    box-shadow:0 0 0 1px rgba(198,154,70,.45),0 0 40px rgba(198,154,70,.12),
+    0 22px 60px rgba(0,0,0,.65)}
+  .marco>vturb-smartplayer{display:block;width:100%;max-width:none;margin:0}
+  .capa{position:absolute;left:0;right:0;top:0;aspect-ratio:9/16;display:flex;flex-direction:column;align-items:center;
+    justify-content:center;gap:14px;cursor:pointer;text-align:center;padding:24px;
+    background:radial-gradient(circle at 50% 44%,rgba(198,154,70,.22),rgba(4,6,14,.9) 70%)}
+  .capa.oculta{display:none}
+  .bocina{width:66px;height:66px;border-radius:50%;
+    background:linear-gradient(180deg,var(--oro-claro),var(--oro));
+    display:flex;align-items:center;justify-content:center;animation:pulso 2.1s ease-out infinite}
+  @keyframes pulso{0%{box-shadow:0 0 0 0 rgba(198,154,70,.5)}100%{box-shadow:0 0 0 26px rgba(198,154,70,0)}}
+  .bocina svg{width:28px;height:28px;fill:#0A0E20;margin-left:3px}
+  .capa p{font-family:var(--serif);font-size:19px;color:var(--oro-luz)}
+  .capa small{font-size:12.5px;color:#B9C4D6;max-width:250px;line-height:1.5}
+
+  .cta-zona{margin-top:22px;min-height:104px;display:flex;flex-direction:column;
+    align-items:center;justify-content:center}
+  .esperando{display:flex;align-items:center;gap:9px;color:#6E7B94;font-size:13px}
+  .giro{width:14px;height:14px;border:2px solid rgba(147,160,184,.25);border-top-color:var(--oro);
+    border-radius:50%;animation:girar .9s linear infinite}
+  @keyframes girar{to{transform:rotate(360deg)}}
+  .cta{display:none;width:100%;text-align:center;animation:surgir .6s ease-out}
+  .cta.visible{display:block}
+  @keyframes surgir{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+  .boton{display:block;width:100%;background:linear-gradient(180deg,var(--verde-alto),var(--verde));
+    color:#fff;font-size:17.5px;font-weight:700;letter-spacing:.02em;padding:20px 14px;
+    border-radius:11px;text-decoration:none;box-shadow:0 10px 26px rgba(27,158,69,.42);
+    animation:respirar 2.3s ease-in-out infinite}
+  @keyframes respirar{0%,100%{transform:scale(1)}50%{transform:scale(1.022)}}
+  .boton small{display:block;font-size:12px;font-weight:500;opacity:.92;margin-top:5px;letter-spacing:.03em}
+
+  .incluye{margin-top:30px;padding-top:24px;border-top:1px solid rgba(198,154,70,.22)}
+  .incluye h2{font-family:var(--serif);text-align:center;font-size:14px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--oro);margin-bottom:20px;font-weight:400}
+  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+  .item{text-align:center}
+  .anillo{width:54px;height:54px;margin:0 auto 9px;border:1.5px solid rgba(198,154,70,.65);
+    border-radius:50%;display:flex;align-items:center;justify-content:center}
+  .anillo svg{width:23px;height:23px;fill:var(--oro-claro)}
+  .item span{display:block;font-size:9.5px;letter-spacing:.11em;text-transform:uppercase;
+    color:#C3CDDE;line-height:1.45}
+
+  .pie{margin-top:36px;text-align:center;font-size:11px;line-height:1.7;color:#5C6880}
+  .pie a{color:#7A88A0;text-decoration:none}
+  @media(min-width:560px){ h1 .l1{font-size:34px} h1 .l2{font-size:60px} .env{padding-top:28px} }
+</style>
+
+<script>!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);</script>
+<link rel="preload" href="js/player.js" as="script">
+<link rel="preload" href="js/smartplayer.js" as="script">
+<link rel="preload" href="https://cdn.converteai.net/f93eec12-25d1-4295-afcb-b6ad233b41e1/6ac68e8f6785d5b41a282a4b/main.m3u8" as="fetch">
+<link rel="dns-prefetch" href="https://cdn.converteai.net">
+<link rel="dns-prefetch" href="https://scripts.converteai.net">
+<link rel="dns-prefetch" href="https://images.converteai.net">
+<link rel="dns-prefetch" href="https://license.vturb.com">
+
+</head>
+<body>
+<div class="env">
+
+  <div class="aviso"><span class="punto"></span> Esta presentación puede salir del aire</div>
+
+  <p class="lead">Hoy puede ser el día en que todo cambia:</p>
+
+  <h1 class="titular">¡Descubre cómo restaurar la <em>prosperidad</em> y la <em>abundancia</em> en tu vida con la ayuda de tu <em>Ángel de la Guarda</em>!</h1>
+  <p class="bajada2">La oración que el Padre Pío guardó durante décadas<br>dentro de una iglesia en Italia.</p>
+
+  <div class="marco" id="marco">
+    <vturb-smartplayer id="vid-6ac68e9fda9cef979b957ca0"><div class="vturb-player-placeholder" style="position:relative;width:100%;padding:177.77777777777777% 0 0;z-index:0;background-color:black;"></div></vturb-smartplayer>
+    <script type="text/javascript">
+      var s=document.createElement("script");
+      s.src="https://scripts.converteai.net/f93eec12-25d1-4295-afcb-b6ad233b41e1/players/6ac68e9fda9cef979b957ca0/v4/player.js";
+      s.async=!0;document.head.appendChild(s);
+    </script>
+  </div>
+
+  <p class="pie">
+    Este sitio no forma parte de Facebook ni de Meta Platforms, Inc.<br>
+    Contenido devocional. Los resultados varían de persona a persona.<br>
+    <a href="#">Términos</a> · <a href="#">Privacidad</a>
+  </p>
+</div>
+
+<script>
+// O player do VTurb (id vid-6ac68e9fda9cef979b957ca0) controla tudo:
+// overlay de autoplay em espanhol, "continuar assistindo" e o botão verde
+// de checkout, que aparece em 01:01:45 (3705 s) por configuração do painel.
+// Não configurar delay aqui — o delay mora só no VTurb.
+</script>
+
+
+</body></html>
