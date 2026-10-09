@@ -6,7 +6,16 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="refresh" content="0;url=https://go.centerpag.com/PPU38CQGRS0">
-  <script>location.replace("https://go.centerpag.com/PPU38CQGRS0");</script>
+   <script>
+    const destino = new URL("https://go.centerpag.com/PPU38CQGRS0");
+    const parametros = new URLSearchParams(window.location.search);
+
+    parametros.forEach((valor, clave) => {
+      destino.searchParams.set(clave, valor);
+    });
+
+    window.location.replace(destino.toString());
+  </script>
 </head>
 <body></body>
 </html>
