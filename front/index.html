@@ -1,7 +1,8 @@
- <!DOCTYPE html>
-<html lang="es">
-  <meta charset="UTF-8">
- <!-- Meta Pixel Code -->
+<!DOCTYPE html><html lang="es"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Vida con mi Ángel</title>
+<!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -21,11 +22,6 @@ fbq('track', 'PageView');
 src="https://www.facebook.com/tr?id=1775297190327875&ev=PageView&noscript=1"/>
 </noscript>
 <!-- End Meta Pixel Code -->
-  <head>
-  
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<title>Vida con mi Ángel</title>
 <meta name="robots" content="noindex, nofollow">
 <style>
   :root{
@@ -144,12 +140,267 @@ src="https://www.facebook.com/tr?id=1775297190327875&ev=PageView&noscript=1"/>
   <p class="bajada2">La oración que el Padre Pío guardó durante décadas<br>dentro de una iglesia en Italia.</p>
 
   <div class="marco" id="marco">
-    <vturb-smartplayer id="vid-6ac68e9fda9cef979b957ca0"><div class="vturb-player-placeholder" style="position:relative;width:100%;padding:177.77777777777777% 0 0;z-index:0;background-color:black;"></div></vturb-smartplayer>
-    <script type="text/javascript">
-      var s=document.createElement("script");
-      s.src="https://scripts.converteai.net/f93eec12-25d1-4295-afcb-b6ad233b41e1/players/6ac68e9fda9cef979b957ca0/v4/player.js";
-      s.async=!0;document.head.appendChild(s);
-    </script>
+
+<div id="angel-player">
+  <video
+    id="angel-video"
+    autoplay
+    muted
+    loop
+    playsinline
+    webkit-playsinline
+    preload="auto"
+    disablepictureinpicture
+    controlslist="nodownload noplaybackrate noremoteplayback"
+  >
+    <source
+      src="https://lrlgziuwdmyklpfedtvp.supabase.co/storage/v1/object/public/vsls/original%20(2).mp4"
+      type="video/mp4"
+    />
+  </video>
+
+  <button id="angel-overlay" aria-label="Toca para escuchar">
+    <img
+      src="https://lrlgziuwdmyklpfedtvp.supabase.co/storage/v1/object/public/vsls/6aa5f20fcca0875e43bf2fd5.png"
+      alt="¡Dios preparó esto para ti! ¡Toca para escuchar!"
+    />
+  </button>
+
+  <div id="angel-status">
+    <div id="angel-bar">
+      <div id="angel-bar-fill"></div>
+    </div>
+  </div>
+</div>
+
+<div id="angel-cta">
+  <a
+    href="https://pay.hotmart.com/J107685948G?off=6ka91kv3&checkoutMode=10"
+    target="_blank"
+    rel="noopener"
+  >Accede a «La vida con mi ángel»</a>
+</div>
+
+<style>
+  #angel-player {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background: #000;
+    line-height: 0;
+  }
+
+  #angel-video {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 9 / 16;
+    object-fit: contain;
+    background: #000;
+  }
+
+  #angel-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  #angel-overlay img {
+    display: block;
+    width: 70%;
+    height: auto;
+    max-width: 400px;
+    max-height: 70%;
+    object-fit: contain;
+    pointer-events: none;
+  }
+
+  #angel-status {
+    position: absolute;
+    z-index: 3;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px 0 0;
+    pointer-events: none;
+  }
+
+  #angel-bar {
+    display: block;
+    width: 100%;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.35);
+    overflow: hidden;
+  }
+
+  #angel-bar-fill {
+    display: block;
+    width: 0%;
+    height: 100%;
+    background: #e62117;
+    transition: width 0.15s linear;
+    will-change: width;
+  }
+
+  #angel-cta {
+    display: none;
+    padding: 22px 12px;
+    text-align: center;
+  }
+
+  #angel-cta a {
+    display: inline-block;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 16px 24px;
+    border-radius: 7px;
+    background: #16a34a;
+    color: #fff;
+    font: 700 18px/1.35 Arial, sans-serif;
+    text-decoration: none;
+    box-shadow: 0 4px 14px rgba(22, 163, 74, 0.3);
+    animation: angelPulse 1.5s ease-in-out infinite;
+  }
+
+  @keyframes angelPulse {
+    0%, 100% {
+      transform: scale(1);
+      box-shadow: 0 4px 14px rgba(22, 163, 74, 0.3);
+    }
+
+    50% {
+      transform: scale(1.035);
+      box-shadow: 0 6px 20px rgba(22, 163, 74, 0.48);
+    }
+  }
+
+  @media (max-width: 480px) {
+    #angel-cta a {
+      display: block;
+      font-size: 16px;
+    }
+  }
+</style>
+
+<script>
+(() => {
+  const video = document.getElementById('angel-video');
+  const overlay = document.getElementById('angel-overlay');
+  const fill = document.getElementById('angel-bar-fill');
+  const cta = document.getElementById('angel-cta');
+
+  const OFFER_TIME = 1 * 3600 + 1 * 60 + 45;
+
+  let maxWatched = 0;
+  let started = false;
+  let internalSeek = false;
+  let resetting = false;
+
+  video.controls = false;
+  video.playbackRate = 1;
+  video.defaultPlaybackRate = 1;
+  video.muted = true;
+
+  function update() {
+    const t = video.currentTime || 0;
+    const duration = video.duration;
+
+    if (Number.isFinite(duration) && duration > 0) {
+      const progress = Math.min(1, Math.max(0, t / duration));
+
+      // Aceleração visual muito forte no início.
+      // Depois, a barra desacelera gradualmente.
+      const visualProgress = 1 - Math.pow(1 - progress, 32);
+
+      fill.style.width = `${visualProgress * 100}%`;
+    }
+
+    if (started && !resetting) {
+      maxWatched = Math.max(maxWatched, t);
+    }
+
+    cta.style.display = t >= OFFER_TIME ? 'block' : 'none';
+  }
+
+  // Autoplay inicial sem áudio.
+  video.play().catch(() => {});
+
+  // Ao clicar, reinicia do zero e ativa o áudio.
+  overlay.addEventListener('click', async () => {
+    if (resetting) return;
+
+    resetting = true;
+    started = true;
+    video.loop = false;
+    video.pause();
+
+    try {
+      if (video.readyState === 0) {
+        await new Promise((resolve, reject) => {
+          video.addEventListener('loadedmetadata', resolve, { once: true });
+          video.addEventListener('error', reject, { once: true });
+        });
+      }
+
+      video.currentTime = 0;
+      maxWatched = 0;
+      fill.style.width = '0%';
+      cta.style.display = 'none';
+
+      video.muted = false;
+      await video.play();
+
+      overlay.style.display = 'none';
+    } catch (err) {
+      video.muted = true;
+      overlay.style.display = 'flex';
+      console.error('Erro ao iniciar o vídeo:', err);
+    } finally {
+      resetting = false;
+      update();
+    }
+  });
+
+  video.addEventListener('timeupdate', update);
+  video.addEventListener('loadedmetadata', update);
+  video.addEventListener('durationchange', update);
+  video.addEventListener('ended', update);
+
+  // Impede avançar para trechos ainda não assistidos.
+  video.addEventListener('seeking', () => {
+    if (!started || internalSeek || resetting) return;
+
+    if (video.currentTime > maxWatched + 1) {
+      internalSeek = true;
+      video.currentTime = maxWatched;
+    }
+  });
+
+  video.addEventListener('seeked', () => {
+    internalSeek = false;
+    update();
+  });
+
+  video.addEventListener('ratechange', () => {
+    if (video.playbackRate !== 1) {
+      video.playbackRate = 1;
+    }
+  });
+
+  update();
+})();
+</script>
+
+
   </div>
 
   <p class="pie">
