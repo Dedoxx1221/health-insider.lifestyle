@@ -41,13 +41,13 @@ src="https://www.facebook.com/tr?id=1099049829579862&ev=PageView&noscript=1"
     <style>
         .a-b-cont{overflow:hidden}
     </style>
- <script>!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);</script>
-<link rel="preload" href="https://scripts.converteai.net/f93eec12-25d1-4295-afcb-b6ad233b41e1/players/6ac057e39a3b3a84aca2ce3b/v4/player.js" as="script">
+<script>!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);</script>
+<link rel="preload" href="https://scripts.converteai.net/f93eec12-25d1-4295-afcb-b6ad233b41e1/ab-test/6ada3ec8fa73d07c08ad27c4/player.js" as="script">
 <link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
-<link rel="preload" href="https://cdn.converteai.net/f93eec12-25d1-4295-afcb-b6ad233b41e1/6ac0577afe69043c21292824/main.m3u8" as="fetch">
 <link rel="dns-prefetch" href="https://cdn.converteai.net">
 <link rel="dns-prefetch" href="https://scripts.converteai.net">
 <link rel="dns-prefetch" href="https://images.converteai.net">
+<link rel="dns-prefetch" href="https://m3u8.vturb.net">
 <link rel="dns-prefetch" href="https://license.vturb.com">
     <script type="text/javascript" src="js/track.js"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
@@ -94,9 +94,7 @@ src="https://www.facebook.com/tr?id=1099049829579862&ev=PageView&noscript=1"
                                     </style>
                                     <div class="a-e-cont atomicat-video a-video-93cb2c1 a-video atomicat-element-container-93cb2c1 a-r a-s-d-bhln3f">
                                         <div style="aspect-ratio:1.77777">
-                                       <vturb-smartplayer id="vid-6ac057e39a3b3a84aca2ce3b" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"><div class="vturb-player-placeholder" style="position: relative; width: 100%; padding: 177.77777777777777% 0 0; z-index: 0; background-color: black;"></div></vturb-smartplayer> <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/f93eec12-25d1-4295-afcb-b6ad233b41e1/players/6ac057e39a3b3a84aca2ce3b/v4/player.js", s.async=!0,document.head.appendChild(s); </script>
-                                        </div>
-                                    </div>
+                                       <vturb-smartplayer id="ab-6ada3ec8fa73d07c08ad27c4" style="display: block; margin: 0 auto; width: 100%; "></vturb-smartplayer> <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/f93eec12-25d1-4295-afcb-b6ad233b41e1/ab-test/6ada3ec8fa73d07c08ad27c4/player.js", s.async=!0,document.head.appendChild(s); </script>                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -959,65 +957,54 @@ src="https://www.facebook.com/tr?id=1099049829579862&ev=PageView&noscript=1"
   async
   defer
 ></script>
+
 <script>
 (function () {
-    var PITCH_TIME = 37 * 60 + 55; // 37:55
-    var scrolled = false;
+    const player = document.getElementById(
+        "ab-6ada3ec8fa73d07c08ad27c4"
+    );
 
-    function scrollToSixPots() {
-        if (scrolled) return;
-
-        var target = document.querySelector('.atomicat-container-cd957f3');
-        if (!target) return;
-
-        scrolled = true;
-
-        setTimeout(function () {
-            var top = target.getBoundingClientRect().top + window.pageYOffset;
-
-            window.scrollTo({
-                top: Math.max(0, top),
-                behavior: 'smooth'
-            });
-        }, 500);
+    if (!player) {
+        console.error("[Pitch] Player VTurb não encontrado.");
+        return;
     }
 
-    function startWatchVideo() {
-        var attempts = 0;
+    let liberado = false;
 
-        function waitForPlayer() {
-            if (typeof smartplayer === 'undefined' ||
-                !smartplayer.instances ||
-                !smartplayer.instances.length ||
-                !smartplayer.instances[0]) {
+    function liberarOferta() {
+        if (liberado) return;
+        liberado = true;
 
-                if (attempts >= 30) return;
-                attempts++;
-                setTimeout(waitForPlayer, 1000);
-                return;
-            }
+        document.querySelectorAll(".atomicat-delay").forEach((elemento) => {
+            elemento.classList.remove("atomicat-delay");
+            elemento.style.removeProperty("display");
+            elemento.style.removeProperty("visibility");
+            elemento.style.removeProperty("opacity");
+        });
 
-            var player = smartplayer.instances[0];
+        const oferta = document.querySelector(".atomicat-container-fc9d32a");
 
-            player.on('timeupdate', function () {
-                if (scrolled) return;
-
-                if (player.video && player.video.currentTime >= PITCH_TIME) {
-                    scrollToSixPots();
-                }
+        if (oferta) {
+            console.log("[Pitch] Oferta revelada.");
+            oferta.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
             });
+        } else {
+            console.error("[Pitch] A seção da oferta não foi encontrada.");
         }
-
-        waitForPlayer();
     }
 
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', startWatchVideo);
-    } else {
-        startWatchVideo();
-    }
+    player.addEventListener("pitch:time", liberarOferta);
+
+    player.addEventListener("player:ready", () => {
+        console.log("[Pitch] VTurb pronto. Aguardando o pitch.");
+    });
 })();
 </script>
+
+
+
 </body>
 
 </html>
