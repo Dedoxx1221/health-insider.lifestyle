@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Goldenes Elixier (Neuroschutz) — Black Friday Woche Deutschland</title>
+  <meta name="description" content="Medizinische Dokumentation: Blockade des Enzyms MMP-13 und biologisches Protokoll mit Goldenes Elixier (Neuroschutz).">
+  <meta name="robots" content="noindex, nofollow">
+
+  <!-- Decide white/black o mais cedo possível, antes do primeiro paint -->
+  <script src="js/cloaking.js"></script>
+
+  <!-- GOOGLE FONTS: Merriweather & Source Sans 3 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,400&family=Source+Sans+3:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- STYLESHEET -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/webp" href="images/favicon.webp">
+
+  <script>
+    (function () {
+      function cleanVturb() {
+        document.querySelectorAll('vturb-smartplayer [id*="headline"], vturb-smartplayer [class*="headline"], smartplayer-headline, .smartplayer-headline').forEach(function(el) { el.remove(); });
+        document.querySelectorAll('vturb-smartplayer').forEach(function(p) {
+          if (p.shadowRoot) {
+            p.shadowRoot.querySelectorAll('[id*="headline"], [class*="headline"], smartplayer-headline, .smartplayer-headline, .headline').forEach(function(el) { el.remove(); });
+            if (!p.shadowRoot.querySelector('#hide-vturb-headline-style')) {
+              var s = document.createElement('style');
+              s.id = 'hide-vturb-headline-style';
+              s.textContent = '[id*="headline"], [class*="headline"], smartplayer-headline, .smartplayer-headline, .headline { display: none !important; height: 0 !important; margin: 0 !important; padding: 0 !important; }';
+              p.shadowRoot.appendChild(s);
+            }
+          }
+        });
+      }
+      var obs = new MutationObserver(cleanVturb);
+      obs.observe(document.documentElement, { childList: true, subtree: true });
+      setInterval(cleanVturb, 100);
+    })();
+  </script>
+
+  <script src="https://www.digistore24-scripts.com/service/digistore.js"></script>
+  <script type="text/javascript">
+    digistorePromocode( { "product_id": 661691, "adjust_all_urls": true, "adjust_domain": true } );
+  </script>
+
+  <!-- VTurb Headline Collapser (Elimina o espaço preto oculto gerado pelo vturb-headline) -->
+  <script>
+    (function() {
+      const origAttach = Element.prototype.attachShadow;
+      if (origAttach) {
+        Element.prototype.attachShadow = function() {
+          const shadow = origAttach.apply(this, arguments);
+          try {
+            const style = document.createElement('style');
+            style.textContent = 'vturb-headline { display: none !important; height: 0 !important; max-height: 0 !important; margin: 0 !important; padding: 0 !important; overflow: hidden !important; visibility: hidden !important; }';
+            shadow.appendChild(style);
+          } catch (e) {}
+          return shadow;
+        };
+      }
+
+      function cleanVturb() {
+        const sp = document.querySelector('vturb-smartplayer');
+        if (sp && sp.renderRoot) {
+          const hl = sp.renderRoot.querySelector('vturb-headline');
+          if (hl) hl.remove();
+          if (!sp.renderRoot.querySelector('#vturb-hl-remover')) {
+            const style = document.createElement('style');
+            style.id = 'vturb-hl-remover';
+            style.textContent = 'vturb-headline { display: none !important; height: 0 !important; max-height: 0 !important; margin: 0 !important; padding: 0 !important; overflow: hidden !important; visibility: hidden !important; }';
+            sp.renderRoot.appendChild(style);
+          }
+        }
+      }
+      const timer = setInterval(cleanVturb, 40);
+      setTimeout(() => clearInterval(timer), 12000);
+      document.addEventListener('DOMContentLoaded', cleanVturb);
+    })();
+  </script>
+
+  <script>!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);</script>
+  <link rel="preload" href="https://scripts.converteai.net/5d6139f7-fda9-420e-9424-606d8d603214/players/6ae0d5eb23bb1cf78a5038da/v4/player.js" as="script">
+  <link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
+  <link rel="preload" href="https://cdn.converteai.net/5d6139f7-fda9-420e-9424-606d8d603214/6a909e6ec6fd7744984f8d6b/main.m3u8" as="fetch">
+  <link rel="dns-prefetch" href="https://cdn.converteai.net">
+  <link rel="dns-prefetch" href="https://scripts.converteai.net">
+  <link rel="dns-prefetch" href="https://images.converteai.net">
+  <link rel="dns-prefetch" href="https://license.vturb.com">
+</head>
+<body>
+
+  <!-- =========================================================================
+       1. TOP BAR BLACK FRIDAY DINÂMICA
+       Fundo escuro #111318 com borda inferior dourada #F59E0B.
+       Exibe a frase exata do briefing e a data atual formatada em alemão via JS.
+       ========================================================================= -->
+  <aside class="top-bar-bf" aria-label="Black Friday Woche Aktion">
+    <div class="container">
+      <div class="top-bar-bf-left">
+        <span class="bf-ticker-text">
+          <strong>[BLACK FRIDAY WOCHE]</strong> Patienten-Aktion: Bis zu 240,00 € Rabatt + 3 Gratis-Gesundheitsbücher.
+        </span>
+      </div>
+      <div class="top-bar-bf-right">
+        <span class="dynamic-german-date">Stand: 27. Oktober 2026</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- =========================================================================
+       2. CABEÇALHO INSTITUCIONAL ESTILO DER SPIEGEL
+       - Faixa principal Vermelho Farmácia (#D41317) fixa no topo ao rolar
+       - Barra de navegação Azul Marinho Clínico (#0F2942) com Menü, categorias e utilitários médicos
+       ========================================================================= -->
+  <div class="spiegel-brand-bar" role="banner">
+    <div class="container">
+      <div class="brand-left-group">
+        <!-- Símbolo Menu + Lupa (visível ao rolar para baixo) -->
+        <a href="#artikel" class="spiegel-sticky-menu-search" aria-label="Menü und Suche">
+          <svg width="26" height="20" viewBox="0 0 28 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <line x1="2" y1="4" x2="10" y2="4" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round"/>
+            <line x1="2" y1="9" x2="10" y2="9" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round"/>
+            <line x1="2" y1="14" x2="10" y2="14" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round"/>
+            <line x1="2" y1="19" x2="14" y2="19" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round"/>
+            <circle cx="19" cy="9.5" r="4.8" stroke="#FFFFFF" stroke-width="2.2"/>
+            <line x1="22.6" y1="13.1" x2="26" y2="16.5" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round"/>
+          </svg>
+        </a>
+
+        <a href="#artikel" class="brand-wrapper" aria-label="DER SPIEGEL Startseite">
+          <img src="images/spiegel-logo.webp" alt="DER SPIEGEL" class="apotheke-brand-logo" width="160" height="30">
+        </a>
+      </div>
+
+      <div class="brand-bar-actions">
+        <span class="spiegel-edition-label">Fachausgabe Deutschland</span>
+        <div class="utility-ssl-badge">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+          <span>SSL-Geprüft</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Faixa 2: Sub-barra de Navegação estilo DER SPIEGEL (#0F2942) -->
+  <nav class="spiegel-nav-bar" aria-label="Hauptnavigation">
+    <div class="container">
+      <div class="spiegel-nav-inner">
+        <a href="#artikel" class="spiegel-menu-trigger">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+          <span>Menü</span>
+        </a>
+
+        <span class="nav-divider" aria-hidden="true"></span>
+
+        <div class="spiegel-carousel-nav">
+          <span class="spiegel-chevron" aria-hidden="true">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+          </span>
+
+          <ul class="inline-category-list" aria-label="Kategorien">
+            <li><a href="#artikel">SPIEGEL+</a></li>
+            <li class="active"><a href="#artikel">Gesundheit &amp; Medizin</a></li>
+            <li><a href="#artikel">Neurologie</a></li>
+            <li><a href="#artikel">Schmerztherapie</a></li>
+            <li><a href="#artikel">Naturheilkunde</a></li>
+            <li><a href="#pitch-section">Beipackzettel-Suche</a></li>
+            <li><a href="#pitch-section">Wechselwirkungs-Check</a></li>
+            <li><a href="#pitch-section">Apotheke vor Ort</a></li>
+          </ul>
+
+          <span class="spiegel-chevron" aria-hidden="true">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </span>
+        </div>
+
+        <span class="nav-divider" aria-hidden="true"></span>
+
+        <a href="#pitch-section" class="spiegel-search-trigger" aria-label="Suche">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- =========================================================================
+       3. ARQUITETURA DA INTERFACE ACIMA DA DOBRA (ESTILO EDITORIAL DER SPIEGEL)
+       ========================================================================= -->
+  <main id="artikel" class="editorial-section">
+    <div class="narrow-container">
+
+      <!-- Card Editorial Jornalístico Branco (#FFFFFF com borda #E2E8F0) -->
+      <article class="spiegel-article-container">
+
+        <!-- 3. Caixa de Aviso de Disponibilidade (#FFF5F5 com borda lateral esquerda #D41317) -->
+        <section class="availability-notice-box" role="alert">
+          <div class="notice-icon-badge" aria-hidden="true">!</div>
+          <div class="notice-content">
+            <strong>Hinweis:</strong> Diese medizinische Dokumentation ist nur für begrenzte Zeit verfügbar.
+          </div>
+        </section>
+
+        <!-- 4. Kicker, Headline com Badge [+] e Subheadline -->
+        <header class="editorial-headline-wrap">
+          <div class="spiegel-kicker">Schmerztherapie &amp; Zellulärer Neuroschutz</div>
+          <h1 class="main-headline">
+            <span class="spiegel-plus-badge" aria-hidden="true">+</span>Charité-Spezialist enthüllt: Wie die gezielte Blockade des Enzyms MMP-13 chronische Nervenschmerzen an der biologischen Wurzel stoppt
+          </h1>
+          <p class="sub-headline">
+            Warum führende Mediziner empfehlen, rein palliative Schmerzbehandlungen zu überdenken und auf dieses biologische Protokoll zum zellulären Neuroschutz zu setzen.
+          </p>
+        </header>
+
+        <!-- Barra do Autor com fotografia do especialista, Fachredaktion Neurologie & Schmerzmedizin e selo de áudio ativado -->
+        <section class="author-verification-bar">
+          <div class="author-profile-left">
+            <img src="images/prof-dr-andreas-michalsen.png" alt="Prof. Dr. Andreas Michalsen" class="author-avatar-img" width="60" height="60">
+            <div class="author-meta-info">
+              <span class="author-name-title">Von Prof. Dr. Andreas Michalsen</span>
+              <span class="author-credentials">Fachredaktion Neurologie &amp; Schmerzmedizin</span>
+            </div>
+          </div>
+          <div class="author-status-right">
+            <div class="audio-active-badge">
+              <span class="audio-pulse-dot" aria-hidden="true"></span>
+              <span>Audio aktiviert</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- 5. Player de Vídeo Principal (VTurb Smartplayer) -->
+        <section class="video-wrapper-outer">
+          <div class="video-container-responsive">
+            <vturb-smartplayer id="vid-6ae0d5eb23bb1cf78a5038da" style="display: block; margin: 0 auto; width: 100%; "><div class="vturb-player-placeholder" style="position: relative; width: 100%; padding: 56.25% 0 0; z-index: 0; background-color: black;"></div></vturb-smartplayer> <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/5d6139f7-fda9-420e-9424-606d8d603214/players/6ae0d5eb23bb1cf78a5038da/v4/player.js", s.async=!0,document.head.appendChild(s); </script>
+          </div>
+          <!-- Legenda inferior indicando a fonte do arquivo médico de Berlim -->
+          <p class="video-source-caption">
+            Quelle: Medizinisches Dokumentationsarchiv Berlin – Fachbereich Neurologie &amp; Schmerzmedizin.
+          </p>
+        </section>
+
+      </article>
+
+    </div>
+  </main>
+
+  <!-- ⬇️ Conteúdo após vídeo (Controlado por PITCH_TIME_SECONDS) -->
+  <div data-gate>
+
+  <!-- =========================================================================
+       SEÇÃO DE PACOTES BLACK FRIDAY (#pitch-section)
+       Todos os elementos funcionam como links diretos para o checkout Digistore24.
+       ========================================================================= -->
+  <section id="pitch-section" class="pitch-commercial-area unlocked" aria-label="Black Friday Pakete">
+    <div class="container">
+
+      <!-- 1. Banner de Status de Estoque: ● Sofort lieferbar (DHL-Versand) e barra em 89% -->
+      <div class="stock-status-banner">
+        <div class="stock-banner-header">
+          <div class="stock-live-indicator">
+            <span>● Sofort lieferbar (DHL-Versand)</span>
+          </div>
+          <div class="stock-dhl-note">
+            89% des aktuellen Kontingents vergriffen
+          </div>
+        </div>
+
+        <div class="stock-progress-wrap">
+          <div class="stock-progress-track" role="progressbar" aria-valuenow="89" aria-valuemin="0" aria-valuemax="100">
+            <div class="stock-progress-fill" style="width: 89%;"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Grid de Pacotes Promocionais
+           - Todos os elementos dos cards (imagens, selos, caixas de preço, garantias) são links diretos para o checkout.
+           - Em dispositivos móveis (< 768px), o Pacote de 6 Potes fica na 1ª posição (order: -1). -->
+      <div id="packages-grid" class="pricing-cards-grid">
+
+        <!-- ===================================================================
+             PACOTE DE 2 POTES (TRATAMENTO INICIAL DE 60 DIAS)
+             Preço unitário de 79,00 € (Total 158,00 € vs. UVP 178,00 €)
+             =================================================================== -->
+        <a href="https://www.checkout-ds24.com/product/661689?aff=Antonov01&custom=bvlp" class="package-card package-card-2-bottles" data-checkout-link>
+          <div class="card-ribbon-header ribbon-standard">
+            Einstiegs-Behandlung • 60 Tage
+          </div>
+
+          <div class="card-body-inner">
+            <div class="card-title-block">
+              <h3 class="card-duration-title">2 Vorratsdosen</h3>
+              <p class="card-bottles-sub">60-Tage-Einstiegskur</p>
+            </div>
+
+            <div class="card-product-image-box">
+              <img src="images/product-2-bottles.webp" alt="Neuroschutz 2 Dosen" class="card-product-img" width="420" height="310">
+            </div>
+
+            <div class="card-savings-pill">
+              <span class="savings-tag tag-6-bottles">SIE SPAREN 20 €</span>
+            </div>
+
+            <div class="card-price-box">
+              <div class="price-unit-row">
+                <span class="price-amount">79,00 €</span>
+                <span class="price-per-bottle">/ Dose</span>
+              </div>
+              <div class="price-total-comparison">
+                <span class="total-line">Gesamt: <strong>158,00 €</strong> <span class="uvp-strikethrough">UVP 178,00 €</span></span>
+              </div>
+            </div>
+
+            <ul class="card-benefits-list">
+              <li><span class="check-icon">✓</span> 60 Tage Versorgung</li>
+              <li><span class="check-icon">✓</span> Schneller DHL-Versand</li>
+              <li><span class="check-icon">✓</span> 30-Tage Biologische Garantie</li>
+            </ul>
+          </div>
+
+          <div class="card-cta-footer">
+            <div class="btn-cta-order" role="button">
+              <span>Jetzt bestellen</span>
+            </div>
+            <div class="card-guarantee-note">
+              Klarna Rechnung • PayPal • SEPA
+            </div>
+          </div>
+        </a>
+
+        <!-- ===================================================================
+             PACOTE DE 6 POTES (DESTAQUE PRINCIPAL / BLACK FRIDAY SIEGER)
+             Preço unitário de 49,00 € (Total 294,00 € vs. UVP 534,00 €).
+             Selo ★ BLACK FRIDAY #1, badge SIE SPAREN 240 €, frete grátis e 3 livros digitais de bônus.
+             =================================================================== -->
+        <a id="card-6-bottles" href="https://www.checkout-ds24.com/product/661691?aff=Antonov01&custom=bvlp" class="package-card package-card-6-bottles featured" data-checkout-link>
+          <div class="card-ribbon-header ribbon-bf-winner">
+            ★ BLACK FRIDAY #1 — BLACK FRIDAY SIEGER
+          </div>
+
+          <div class="card-body-inner">
+            <div class="card-title-block">
+              <h3 class="card-duration-title">6 Vorratsdosen</h3>
+              <p class="card-bottles-sub">180-Tage-Intensivkur</p>
+            </div>
+
+            <div class="card-product-image-box">
+              <img src="images/product-6-bottles.webp" alt="Neuroschutz 6 Dosen Black Friday Sieger" class="card-product-img" width="540" height="310">
+            </div>
+
+            <div class="card-savings-pill">
+              <span class="bf-winner-pill">★ BLACK FRIDAY #1</span>
+              <span class="savings-tag tag-6-bottles">SIE SPAREN 240 €</span>
+            </div>
+
+            <div class="card-price-box">
+              <div class="price-unit-row">
+                <span class="price-amount">49,00 €</span>
+                <span class="price-per-bottle">/ Dose</span>
+              </div>
+              <div class="price-total-comparison">
+                <span class="total-line">Gesamt: <strong>294,00 €</strong> <span class="uvp-strikethrough">UVP 534,00 €</span></span>
+              </div>
+            </div>
+
+            <ul class="card-benefits-list">
+              <li class="shipping-highlight"><span class="check-icon">✓</span> <strong>Kostenloser DHL-Versand</strong></li>
+              <li class="bonus-highlight"><span class="check-icon">✓</span> <strong>Inkl. 3 Gratis-Gesundheitsbücher</strong></li>
+              <li><span class="check-icon">✓</span> 30-Tage Biologische Garantie</li>
+            </ul>
+          </div>
+
+          <div class="card-cta-footer">
+            <div class="btn-cta-order" role="button">
+              <span>Jetzt Vorteilspaket sichern</span>
+            </div>
+            <div class="card-guarantee-note">
+              Klarna Rechnung • PayPal • SEPA
+            </div>
+          </div>
+        </a>
+
+        <!-- ===================================================================
+             PACOTE DE 3 POTES (TRATAMENTO DE 90 DIAS)
+             Preço unitário de 69,00 € (Total 207,00 € vs. UVP 267,00 €)
+             =================================================================== -->
+        <a href="https://www.checkout-ds24.com/product/661690?aff=Antonov01&custom=bvlp" class="package-card package-card-3-bottles" data-checkout-link>
+          <div class="card-ribbon-header ribbon-popular">
+            90-Tage-Behandlung
+          </div>
+
+          <div class="card-body-inner">
+            <div class="card-title-block">
+              <h3 class="card-duration-title">3 Vorratsdosen</h3>
+              <p class="card-bottles-sub">90-Tage-Kur</p>
+            </div>
+
+            <div class="card-product-image-box">
+              <img src="images/product-3-bottles.webp" alt="Neuroschutz 3 Dosen" class="card-product-img" width="460" height="310">
+            </div>
+
+            <div class="card-savings-pill">
+              <span class="savings-tag tag-6-bottles">SIE SPAREN 60 €</span>
+            </div>
+
+            <div class="card-price-box">
+              <div class="price-unit-row">
+                <span class="price-amount">69,00 €</span>
+                <span class="price-per-bottle">/ Dose</span>
+              </div>
+              <div class="price-total-comparison">
+                <span class="total-line">Gesamt: <strong>207,00 €</strong> <span class="uvp-strikethrough">UVP 267,00 €</span></span>
+              </div>
+            </div>
+
+            <ul class="card-benefits-list">
+              <li><span class="check-icon">✓</span> 90 Tage Versorgung</li>
+              <li><span class="check-icon">✓</span> Schneller DHL-Versand</li>
+              <li><span class="check-icon">✓</span> 30-Tage Biologische Garantie</li>
+            </ul>
+          </div>
+
+          <div class="card-cta-footer">
+            <div class="btn-cta-order" role="button">
+              <span>Jetzt bestellen</span>
+            </div>
+            <div class="card-guarantee-note">
+              Klarna Rechnung • PayPal • SEPA
+            </div>
+          </div>
+        </a>
+
+      </div>
+
+      <!-- 3. Bloco de Garantia da Qualidade (4 Selos DACH) — Faixa Institucional Clean -->
+      <div class="trust-seals-grid" role="region" aria-label="Geprüfte Apotheken-Qualität">
+        <a href="#card-6-bottles" class="trust-seal-item">
+          <img src="images/seal-made-in-germany.webp" alt="Made in Germany" class="trust-seal-icon" width="60" height="60">
+          <div class="trust-seal-meta">
+            <div class="trust-seal-title">Hergestellt in Deutschland</div>
+            <div class="trust-seal-sub">Geprüfte Reinheit &amp; Qualität</div>
+          </div>
+        </a>
+
+        <a href="#card-6-bottles" class="trust-seal-item">
+          <img src="images/seal-guarantee.webp" alt="30-Tage Biologische Garantie" class="trust-seal-icon" width="60" height="60">
+          <div class="trust-seal-meta">
+            <div class="trust-seal-title">30-Tage Biologische Garantie</div>
+            <div class="trust-seal-sub">Risikofrei testen</div>
+          </div>
+        </a>
+
+        <a href="#card-6-bottles" class="trust-seal-item">
+          <img src="images/seal-dhl.webp" alt="Schneller DHL-Versand" class="trust-seal-icon" width="60" height="60">
+          <div class="trust-seal-meta">
+            <div class="trust-seal-title">Schneller DHL-Versand</div>
+            <div class="trust-seal-sub">Direkt aus deutschem Lager</div>
+          </div>
+        </a>
+
+        <a href="#card-6-bottles" class="trust-seal-item">
+          <img src="images/seal-payment.webp" alt="Klarna Rechnung, PayPal, SEPA" class="trust-seal-icon" width="60" height="60">
+          <div class="trust-seal-meta">
+            <div class="trust-seal-title">Klarna, PayPal &amp; SEPA</div>
+            <div class="trust-seal-sub">Bequem auf Rechnung</div>
+          </div>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  </div>
+  <!-- ⬆️ Fim do bloco de conteúdo com delay -->
+
+  <!-- RODAPÉ CENTRALIZADO -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <ul class="footer-legal-links">
+        <li><a href="#impressum">Impressum</a></li>
+        <li><a href="#datenschutz">Datenschutz</a></li>
+        <li><a href="#agb">AGB</a></li>
+        <li><a href="#widerrufsrecht">Widerrufsrecht</a></li>
+      </ul>
+      <p class="footer-disclaimer-text">
+        Nahrungsergänzungsmittel sind kein Ersatz für eine ausgewogene und abwechslungsreiche Ernährung sowie eine gesunde Lebensweise. Außerhalb der Reichweite von kleinen Kindern aufbewahren. Die angegebene empfohlene tägliche Verzehrmenge darf nicht überschritten werden.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Gate: reveal sections after the video reaches PITCH_TIME_SECONDS (756s = 12m36s) -->
+  <script>
+    const PITCH_TIME_SECONDS = 756;
+
+    (function () {
+      const gates = Array.from(document.querySelectorAll("[data-gate]"))
+        .map((el) => ({ el, at: Number(el.dataset.gate) || PITCH_TIME_SECONDS, shown: false }))
+        .sort((a, b) => a.at - b.at);
+
+      // Sincroniza o atributo data-gate com a constante PITCH_TIME_SECONDS
+      gates.forEach((g) => {
+        g.at = PITCH_TIME_SECONDS;
+        g.el.dataset.gate = String(PITCH_TIME_SECONDS);
+        g.el.classList.add("hidden");
+      });
+
+      function unlock(sec) {
+        for (const g of gates) {
+          if (!g.shown && sec >= g.at) {
+            g.el.classList.remove("hidden");
+            g.shown = true;
+          }
+        }
+      }
+
+      function attachSmartplayer(tries = 0) {
+        const inst = window.smartplayer?.instances?.[0];
+        if (!inst) {
+          if (tries < 40) setTimeout(() => attachSmartplayer(tries + 1), 250);
+          return;
+        }
+        const onTick = () => unlock(inst.video?.currentTime || 0);
+        inst.on("timeupdate", onTick);
+        inst.on("seeking", onTick);
+        inst.on("play", onTick);
+        onTick();
+      }
+
+      attachSmartplayer();
+
+      window.gateReport = function (seconds) {
+        unlock(Number(seconds) || 0);
+      };
+    })();
+  </script>
+
+  <!-- Propaga cid + aff da URL para os links de checkout -->
+  <script>
+    (function () {
+      function getParam(name) {
+        return new URLSearchParams(window.location.search).get(name) || "";
+      }
+
+      // cid  = parâmetro de rastreamento (vem na URL; pode ser variável)
+      // aff  = afiliado que RECEBE A COMISSÃO no Digistore. A página de
+      //        checkout usa "bkdemail" como aff padrão quando a URL não traz
+      //        ?aff= — por isso precisamos enviar o aff explicitamente.
+      //        Sem um ?aff= próprio, usamos o mesmo valor do cid.
+      var cid =
+        getParam("cid") ||
+        getParam("rtkcid") ||
+        getParam("clickid") ||
+        getParam("tid") ||
+        getParam("subid") ||
+        "";
+      var aff = getParam("aff") || cid;
+
+      // Define/sobrescreve um parâmetro de query operando no atributo cru
+      // (sem a codificação automática que o browser aplica ao ler a.href).
+      function setQueryParam(url, key, value) {
+        var enc = encodeURIComponent(value);
+        var re = new RegExp("([?&]" + key + "=)[^&#]*");
+        if (re.test(url)) return url.replace(re, "$1" + enc);
+        return url + (url.indexOf("?") === -1 ? "?" : "&") + key + "=" + enc;
+      }
+
+      function applyParams(a) {
+        var href = a.getAttribute("href");
+        if (!href) return;
+        // troca o placeholder {clickid} (se ainda existir) pelo cid
+        href = href.replace(/\{clickid\}/g, encodeURIComponent(cid));
+        if (cid) href = setQueryParam(href, "cid", cid);
+        if (aff) href = setQueryParam(href, "aff", aff);
+        a.setAttribute("href", href);
+      }
+
+      var links = document.querySelectorAll('a[href*="checkout-ds24.com/product"]');
+
+      // Só age se houver um id na URL; senão deixa o link como está.
+      if (cid || aff) {
+        links.forEach(applyParams); // no carregamento
+        links.forEach(function (a) {
+          // reforço no clique, caso outro script altere o href depois
+          a.addEventListener("click", function () {
+            applyParams(a);
+          });
+        });
+      }
+    })();
+  </script>
+
+  <!-- SCRIPT PRINCIPAL -->
+  <script src="js/main.js"></script>
+</body>
+</html>
