@@ -67,7 +67,28 @@ a {
   color: inherit;
   text-decoration: none;
 }
+/* Corrige o formato do vídeo para widescreen 16:9 */
+.video-wrapper-outer {
+  width: 100%;
+  min-width: 0;
+}
 
+.video-container-responsive {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  aspect-ratio: 16 / 9;
+  height: auto;
+  overflow: hidden;
+}
+
+.video-container-responsive vturb-smartplayer {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  aspect-ratio: 16 / 9 !important;
+  margin: 0 auto !important;
+}
 .container {
   width: 100%;
   max-width: var(--container-max-width);
