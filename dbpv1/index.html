@@ -22,6 +22,31 @@
   <style>
     [data-gate] { display: none !important; }
     [data-gate].pitch-liberado { display: block !important; }
+
+    /* Não força 16:9 nem outra proporção: deixa o embed VTurb definir o formato. */
+    .video-wrapper-outer,
+    .video-wrapper-outer .video-container-responsive {
+      width: 100% !important;
+      max-width: 100% !important;
+      height: auto !important;
+      min-height: 0 !important;
+      aspect-ratio: auto !important;
+      padding-bottom: 0 !important;
+    }
+
+    .video-wrapper-outer .video-container-responsive {
+      position: relative;
+      overflow: visible;
+    }
+
+    .video-wrapper-outer vturb-smartplayer {
+      display: block !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      height: auto !important;
+      aspect-ratio: auto !important;
+      margin: 0 auto !important;
+    }
   </style>
   <link rel="icon" type="image/webp" href="images/favicon.webp">
 
