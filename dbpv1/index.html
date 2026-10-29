@@ -234,8 +234,7 @@
         <!-- 5. Player de Vídeo Principal (VTurb Smartplayer) -->
         <section class="video-wrapper-outer">
           <div class="video-container-responsive">
-            <vturb-smartplayer id="vid-6ae0d5eb23bb1cf78a5038da" style="display: block; margin: 0 auto; width: 100%; "><div class="vturb-player-placeholder" style="position: relative; width: 100%; padding: 56.25% 0 0; z-index: 0; background-color: black;"></div></vturb-smartplayer> <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/5d6139f7-fda9-420e-9424-606d8d603214/players/6ae0d5eb23bb1cf78a5038da/v4/player.js", s.async=!0,document.head.appendChild(s); </script>
-          </div>
+          <vturb-smartplayer id="ab-6ae367cca1db2408a366b3ee" style="display: block; margin: 0 auto; width: 100%; "></vturb-smartplayer> <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/f93eec12-25d1-4295-afcb-b6ad233b41e1/ab-test/6ae367cca1db2408a366b3ee/player.js", s.async=!0,document.head.appendChild(s); </script>          </div>
           <!-- Legenda inferior indicando a fonte do arquivo médico de Berlim -->
           <p class="video-source-caption">
             Quelle: Medizinisches Dokumentationsarchiv Berlin – Fachbereich Stoffwechselmedizin und Diabetologie.
@@ -491,50 +490,61 @@
   </footer>
 
   <!-- Gate: reveal sections after the video reaches PITCH_TIME_SECONDS (756s = 12m36s) -->
-  <script>
-    const PITCH_TIME_SECONDS = 756;
 
-    (function () {
-      const gates = Array.from(document.querySelectorAll("[data-gate]"))
-        .map((el) => ({ el, at: Number(el.dataset.gate) || PITCH_TIME_SECONDS, shown: false }))
-        .sort((a, b) => a.at - b.at);
+<script>
+(function () {
+    const player = document.getElementById(
+        "ab-6ae367cca1db2408a366b3ee"
+    );
 
-      // Sincroniza o atributo data-gate com a constante PITCH_TIME_SECONDS
-      gates.forEach((g) => {
-        g.at = PITCH_TIME_SECONDS;
-        g.el.dataset.gate = String(PITCH_TIME_SECONDS);
-        g.el.classList.add("hidden");
-      });
+    if (!player) {
+        console.error("[Pitch] Player VTurb AB não encontrado.");
+        return;
+    }
 
-      function unlock(sec) {
-        for (const g of gates) {
-          if (!g.shown && sec >= g.at) {
-            g.el.classList.remove("hidden");
-            g.shown = true;
-          }
+    let liberado = false;
+
+    function liberarOferta() {
+        if (liberado) return;
+        liberado = true;
+
+        document.querySelectorAll("[data-gate]").forEach((elemento) => {
+            elemento.classList.remove("hidden");
+        });
+
+        document.querySelectorAll(".atomicat-delay").forEach((elemento) => {
+            elemento.classList.remove("atomicat-delay");
+            elemento.style.removeProperty("display");
+            elemento.style.removeProperty("visibility");
+            elemento.style.removeProperty("opacity");
+        });
+
+        const oferta = document.querySelector(
+            ".atomicat-container-fc9d32a"
+        );
+
+        if (oferta) {
+            console.log("[Pitch] Oferta liberada pelo VTurb.");
+
+            oferta.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+        } else {
+            console.warn(
+                "[Pitch] Oferta liberada, mas o container não foi encontrado."
+            );
         }
-      }
+    }
 
-      function attachSmartplayer(tries = 0) {
-        const inst = window.smartplayer?.instances?.[0];
-        if (!inst) {
-          if (tries < 40) setTimeout(() => attachSmartplayer(tries + 1), 250);
-          return;
-        }
-        const onTick = () => unlock(inst.video?.currentTime || 0);
-        inst.on("timeupdate", onTick);
-        inst.on("seeking", onTick);
-        inst.on("play", onTick);
-        onTick();
-      }
+    player.addEventListener("pitch:time", liberarOferta);
 
-      attachSmartplayer();
+    player.addEventListener("player:ready", () => {
+        console.log("[Pitch] VTurb AB pronto. Aguardando o pitch.");
+    });
+})();
+</script>
 
-      window.gateReport = function (seconds) {
-        unlock(Number(seconds) || 0);
-      };
-    })();
-  </script>
 
   <!-- Propaga cid + aff da URL para os links de checkout -->
   <script>
