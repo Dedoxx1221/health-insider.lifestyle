@@ -1,0 +1,1378 @@
+/* ==========================================================================
+   GOLDENES ELIXIER (NEUROSCHUTZ) — BLACK FRIDAY DEUTSCHLAND
+   Direção de Arte Editorial (Der Spiegel + Apotheken Umschau) & Cores do Briefing
+   ========================================================================== */
+
+/* 1. GUIA DE ESTILO E PALETA DE CORES (ESTRITAMENTE DO BRIEFING) */
+:root {
+  --bg-primary: #FAF8F5;          /* Fundo Principal: Fundo creme editorial para redução de fadiga visual */
+  --bg-card: #FFFFFF;             /* Containers de Conteúdo: Cards de artigo e pacotes em branco puro */
+  --border-card: #E2E8F0;         /* Bordas #E2E8F0 */
+  --text-navy: #0F2942;           /* Azul Marinho Clínico: Títulos principais, textos de autoridade e barras institucionais */
+  --text-body: #1E293B;           /* Texto de leitura confortável (45+) */
+  --text-muted: #526071;          /* Legendas e metadados */
+  --red-pharmacy: #D41317;        /* Vermelho Farmácia: Símbolo de farmácia alemã, avisos urgentes e pílulas de economia */
+  --red-soft-bg: #FFF5F5;         /* Fundo suave da Caixa de Aviso de Disponibilidade */
+  --black-onyx: #111318;          /* Preto Ônix: Top Ticker de Black Friday e fundo do banner de estoque */
+  --gold-metallic: #F59E0B;       /* Dourado Metálico: Selos de destaque, bordas do pacote principal e garantias */
+  --green-pharmacy: #0D8A47;      /* Verde Farmácia: Botões de CTA com efeito tátil */
+  --green-hover: #076331;         /* Estado hover dos botões de CTA */
+
+  --radius-card: 16px;            /* Bordas levemente arredondadas (16px) */
+  --radius-pill: 9999px;
+  --radius-sm: 6px;
+
+  --shadow-studio: 0 4px 16px rgba(15, 41, 66, 0.05);
+  --shadow-card-hover: 0 12px 28px rgba(15, 41, 66, 0.11);
+  --shadow-gold-hero: 0 10px 28px rgba(15, 41, 66, 0.09);
+
+  /* Especificações Tipográficas */
+  --font-serif: 'Merriweather', Georgia, serif;
+  --font-sans: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-base-size: 18px;         /* Tamanho base mínimo de 18px no CSS */
+  --container-max-width: 1120px;
+}
+
+/* 2. RESET & BASE */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: var(--font-base-size);
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: 1rem; /* 18px */
+  background-color: var(--bg-primary);
+  color: var(--text-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+img, svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.narrow-container {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* 3. TOP BAR BLACK FRIDAY DINÂMICA (#111318 + borda #F59E0B) */
+.top-bar-bf {
+  background-color: var(--black-onyx);
+  border-bottom: 2px solid var(--gold-metallic);
+  color: #FFFFFF;
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 8px 0;
+}
+
+.top-bar-bf .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.bf-ticker-text strong {
+  color: var(--gold-metallic);
+  font-weight: 800;
+  letter-spacing: 0.3px;
+}
+
+.top-bar-bf-right {
+  color: #E2E8F0;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* 4. CABEÇALHO INSTITUCIONAL ESTILO DER SPIEGEL */
+/* Faixa 1: Brand Bar Azul Marinho Clínico (#0F2942) — Maior no topo e compacta ao rolar */
+.spiegel-brand-bar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: var(--text-navy);
+  color: #FFFFFF;
+  padding: 15px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 2px 8px rgba(15, 41, 66, 0.14);
+  transition: padding 0.22s ease, box-shadow 0.22s ease;
+}
+
+.spiegel-brand-bar.is-scrolled {
+  padding: 8px 0;
+  box-shadow: 0 4px 14px rgba(15, 41, 66, 0.24);
+}
+
+.spiegel-brand-bar .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.brand-left-group {
+  display: inline-flex;
+  align-items: center;
+}
+
+.spiegel-sticky-menu-search {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 0;
+  opacity: 0;
+  overflow: hidden;
+  margin-right: 0;
+  pointer-events: none;
+  transition: width 0.22s ease, opacity 0.22s ease, margin-right 0.22s ease;
+}
+
+.spiegel-brand-bar.is-scrolled .spiegel-sticky-menu-search {
+  width: 28px;
+  opacity: 1;
+  margin-right: 12px;
+  pointer-events: auto;
+}
+
+.brand-wrapper {
+  display: inline-flex;
+  align-items: center;
+}
+
+.apotheke-brand-logo {
+  height: 32px;
+  width: auto;
+  transition: height 0.22s ease;
+}
+
+.spiegel-brand-bar.is-scrolled .apotheke-brand-logo {
+  height: 24px;
+}
+
+.brand-bar-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.spiegel-edition-label {
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.utility-ssl-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background-color: #FFFFFF;
+  color: var(--text-navy);
+  font-weight: 800;
+  font-size: 0.72rem;
+  padding: 4px 11px;
+  border-radius: 2px;
+  letter-spacing: 0.2px;
+}
+
+/* Faixa 2: Sub-barra de Navegação estilo DER SPIEGEL (#0F2942) */
+.spiegel-nav-bar {
+  background-color: var(--text-navy);
+  color: #FFFFFF;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.76rem;
+}
+
+.spiegel-nav-bar .container {
+  display: flex;
+  align-items: center;
+  min-height: 40px;
+}
+
+.spiegel-nav-inner {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 16px;
+}
+
+.spiegel-menu-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 0.78rem;
+  color: #FFFFFF;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.nav-divider {
+  width: 1px;
+  height: 20px;
+  background-color: rgba(255, 255, 255, 0.25);
+  flex-shrink: 0;
+}
+
+.spiegel-carousel-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1;
+  min-width: 0;
+  gap: 14px;
+}
+
+.spiegel-chevron {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.8);
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.inline-category-list {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  list-style: none;
+  overflow-x: auto;
+  scrollbar-width: none;
+  flex: 1;
+}
+
+.inline-category-list::-webkit-scrollbar {
+  display: none;
+}
+
+.inline-category-list li a {
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  white-space: nowrap;
+  transition: opacity 0.15s ease;
+}
+
+.inline-category-list li a:hover {
+  opacity: 0.8;
+}
+
+.spiegel-search-trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  flex-shrink: 0;
+  transition: opacity 0.15s ease;
+}
+
+.spiegel-search-trigger:hover {
+  opacity: 0.8;
+}
+
+/* 5. ARQUITETURA EDITORIAL ACIMA DA DOBRA (ESTILO DER SPIEGEL) */
+.editorial-section {
+  padding: 24px 0 20px;
+}
+
+/* Card Editorial Jornalístico Branco (#FFFFFF com borda #E2E8F0 e raio 16px do briefing) */
+.spiegel-article-container {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-card);
+  padding: 32px 38px 30px;
+  box-shadow: var(--shadow-studio);
+}
+
+/* Caixa de Aviso de Disponibilidade (#FFF5F5 com borda lateral #D41317) */
+.availability-notice-box {
+  background-color: var(--red-soft-bg);
+  border-left: 3px solid var(--red-pharmacy);
+  border-top: 1px solid #FECACA;
+  border-right: 1px solid #FECACA;
+  border-bottom: 1px solid #FECACA;
+  border-radius: 0 4px 4px 0;
+  padding: 7px 12px;
+  margin: 0 0 18px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: left;
+  gap: 9px;
+}
+
+.notice-icon-badge {
+  background-color: var(--red-pharmacy);
+  color: #FFFFFF;
+  width: 18px;
+  height: 18px;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 0.7rem;
+  flex-shrink: 0;
+}
+
+.notice-content {
+  font-size: 0.78rem;
+  line-height: 1.35;
+  color: #7F1D1D;
+}
+
+.notice-content strong {
+  color: var(--red-pharmacy);
+  font-weight: 700;
+}
+
+/* Kicker, Headline com Badge [+] e Subheadline */
+.editorial-headline-wrap {
+  text-align: left;
+  margin-bottom: 18px;
+}
+
+.spiegel-kicker {
+  font-family: var(--font-sans);
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--red-pharmacy);
+  margin-bottom: 8px;
+  letter-spacing: 0.1px;
+}
+
+.spiegel-plus-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--red-pharmacy);
+  color: #FFFFFF;
+  font-family: var(--font-sans);
+  font-weight: 900;
+  font-size: 1.05rem;
+  width: 24px;
+  height: 24px;
+  border-radius: 2px;
+  margin-right: 9px;
+  vertical-align: middle;
+  position: relative;
+  top: -2px;
+  line-height: 1;
+}
+
+.main-headline {
+  font-family: var(--font-serif);
+  font-size: 1.75rem;
+  font-weight: 900;
+  color: var(--text-navy);
+  line-height: 1.32;
+  letter-spacing: -0.3px;
+  text-align: left;
+  margin-bottom: 12px;
+}
+
+.sub-headline {
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: var(--text-body);
+  line-height: 1.55;
+  text-align: left;
+  margin: 0;
+}
+
+/* Barra do Autor Editorial */
+.author-verification-bar {
+  background-color: transparent;
+  border-top: 1px solid var(--border-card);
+  border-bottom: 1px solid var(--border-card);
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.author-profile-left {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  min-width: 0;
+}
+
+.author-avatar-img {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid var(--border-card);
+  object-fit: cover;
+  object-position: center 15%;
+  flex-shrink: 0;
+}
+
+.author-meta-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+}
+
+.author-name-title {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text-navy);
+  line-height: 1.2;
+}
+
+.author-credentials {
+  font-size: 0.76rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.audio-active-badge {
+  background-color: #F0FDF4;
+  color: #15803D;
+  border: 1px solid #BBF7D0;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.audio-pulse-dot {
+  width: 6px;
+  height: 6px;
+  background-color: #16A34A;
+  border-radius: 50%;
+}
+
+/* Player de Vídeo Principal (Quadro Editorial Limpo) */
+.video-wrapper-outer {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+}
+
+.video-container-responsive {
+  position: relative;
+  width: 100%;
+  background-color: #000000;
+  border: 1px solid var(--border-card);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+/* Utilitário hidden para data-gate (delay VTurb) */
+.hidden {
+  display: none !important;
+}
+
+/* Oculta completamente headline interna fantasma do VTurb */
+vturb-smartplayer [id*="headline"],
+vturb-smartplayer [class*="headline"],
+vturb-smartplayer .smartplayer-headline,
+smartplayer-headline {
+  display: none !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  visibility: hidden !important;
+}
+
+.video-source-caption {
+  text-align: left;
+  font-size: 0.76rem;
+  color: var(--text-muted);
+  padding: 8px 0 0;
+  border-bottom: none;
+}
+
+/* ==========================================================================
+   6. SEÇÃO DE PACOTES BLACK FRIDAY (#pitch-section)
+   Estética Farmácia Alemã (Shop-Apotheke / Orthomol) + Cores do Briefing
+   ========================================================================== */
+#pitch-section {
+  display: block;
+  margin-top: 12px;
+  padding-bottom: 56px;
+}
+
+#pitch-section.pitch-locked {
+  display: none !important;
+  opacity: 0;
+}
+
+#pitch-section.unlocked {
+  display: block;
+  opacity: 1;
+}
+
+/* Banner de Status de Estoque (#111318 + 89%) */
+.stock-status-banner {
+  background-color: var(--black-onyx);
+  border-left: 4px solid var(--gold-metallic);
+  border-top: 1px solid #262B36;
+  border-right: 1px solid #262B36;
+  border-bottom: 1px solid #262B36;
+  border-radius: 6px;
+  color: #FFFFFF;
+  padding: 16px 22px;
+  margin-bottom: 28px;
+  box-shadow: var(--shadow-studio);
+}
+
+.stock-banner-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.stock-live-indicator {
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: #22C55E;
+}
+
+.stock-dhl-note {
+  color: var(--gold-metallic);
+  font-size: 0.84rem;
+  font-weight: 700;
+}
+
+.stock-progress-track {
+  width: 100%;
+  height: 10px;
+  background-color: #262B36;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.stock-progress-fill {
+  height: 100%;
+  width: 89%;
+  background: linear-gradient(90deg, var(--gold-metallic) 0%, var(--red-pharmacy) 100%);
+}
+
+/* Grid de Pacotes Promocionais */
+.pricing-cards-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.08fr 1fr;
+  gap: 20px;
+  align-items: stretch;
+}
+
+.package-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-card);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: 22px;
+  position: relative;
+  box-shadow: var(--shadow-studio);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.package-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-card-hover);
+  border-color: var(--text-navy);
+}
+
+/* Pacote de 6 Potes (Destaque Principal / Black Friday Sieger) */
+.package-card.featured {
+  border: 2px solid var(--gold-metallic);
+  box-shadow: var(--shadow-gold-hero);
+}
+
+.package-card.featured:hover {
+  transform: translateY(-4px);
+}
+
+.card-ribbon-header {
+  width: 100%;
+  padding: 10px 14px;
+  text-align: center;
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+
+.ribbon-standard {
+  background-color: #F1F5F9;
+  color: var(--text-navy);
+  border-bottom: 1px solid var(--border-card);
+}
+
+.ribbon-popular {
+  background-color: var(--text-navy);
+  color: #FFFFFF;
+}
+
+.ribbon-bf-winner {
+  background-color: var(--black-onyx);
+  color: var(--gold-metallic);
+  border-bottom: 2px solid var(--gold-metallic);
+  font-size: 0.82rem;
+  font-weight: 900;
+}
+
+.card-body-inner {
+  padding: 18px 20px 0;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.card-title-block {
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.card-duration-title {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: var(--text-navy);
+}
+
+.card-bottles-sub {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+/* Imagem do Frasco */
+.card-product-image-box {
+  position: relative;
+  width: 100%;
+  height: 205px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 6px 0 10px;
+  padding: 4px;
+}
+
+.card-product-img {
+  max-height: 100%;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Selos de Economia acima da caixa de preço */
+.card-savings-pill {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.bf-winner-pill {
+  display: inline-block;
+  background-color: var(--black-onyx);
+  color: var(--gold-metallic);
+  border: 1px solid var(--gold-metallic);
+  padding: 3px 12px;
+  border-radius: 3px;
+  font-weight: 800;
+  font-size: 0.74rem;
+  letter-spacing: 0.4px;
+}
+
+.savings-tag.tag-6-bottles {
+  display: inline-block;
+  background-color: var(--red-pharmacy);
+  color: #FFFFFF;
+  font-weight: 800;
+  font-size: 0.84rem;
+  padding: 4px 14px;
+  border-radius: 3px;
+  letter-spacing: 0.3px;
+}
+
+/* Caixa de Preço */
+.card-price-box {
+  text-align: center;
+  background-color: #F8FAFC;
+  border-radius: 6px;
+  padding: 12px 10px;
+  margin-bottom: 14px;
+  border: 1px solid var(--border-card);
+}
+
+.package-card.featured .card-price-box {
+  background-color: #FFFBEB;
+  border: 1px solid var(--gold-metallic);
+}
+
+.price-unit-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 4px;
+}
+
+.price-amount {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--text-navy);
+}
+
+.price-per-bottle {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 700;
+}
+
+.price-total-comparison {
+  margin-top: 4px;
+  font-size: 0.86rem;
+  color: var(--text-body);
+}
+
+.uvp-strikethrough {
+  text-decoration: line-through;
+  color: var(--red-pharmacy);
+  margin-left: 6px;
+  font-weight: 600;
+}
+
+/* Lista de Benefícios */
+.card-benefits-list {
+  list-style: none;
+  font-size: 0.85rem;
+  margin-bottom: 16px;
+  flex-grow: 1;
+}
+
+.card-benefits-list li {
+  padding: 6px 0;
+  border-bottom: 1px solid var(--border-card);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.card-benefits-list li:last-child {
+  border-bottom: none;
+}
+
+.check-icon {
+  color: var(--green-pharmacy);
+  font-weight: 900;
+}
+
+/* Botão CTA Verde Farmácia (#0D8A47 e hover #076331) */
+.card-cta-footer {
+  padding: 0 20px;
+}
+
+.btn-cta-order {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background-color: var(--green-pharmacy);
+  color: #FFFFFF;
+  font-weight: 800;
+  font-size: 0.94rem;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  padding: 14px 12px;
+  border-radius: 6px;
+  border-bottom: 3px solid #065F30;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  text-align: center;
+}
+
+.btn-cta-order:hover {
+  background-color: var(--green-hover);
+}
+
+.card-guarantee-note {
+  text-align: center;
+  font-size: 0.76rem;
+  color: var(--text-muted);
+  margin-top: 9px;
+  font-weight: 600;
+}
+
+/* Bloco de Garantia da Qualidade (4 Selos DACH) — Faixa Institucional Clean */
+.trust-seals-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background-color: var(--bg-card);
+  border-top: 2px solid var(--text-navy);
+  border-bottom: 1px solid var(--border-card);
+  border-left: 1px solid var(--border-card);
+  border-right: 1px solid var(--border-card);
+  border-radius: 4px;
+  margin-top: 32px;
+  box-shadow: var(--shadow-studio);
+  overflow: hidden;
+}
+
+.trust-seal-item {
+  background-color: transparent;
+  border-right: 1px solid var(--border-card);
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: left;
+  gap: 12px;
+  transition: background-color 0.15s ease;
+  cursor: pointer;
+}
+
+.trust-seal-item:last-child {
+  border-right: none;
+}
+
+.trust-seal-item:hover {
+  background-color: #F8FAFC;
+}
+
+.trust-seal-icon {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.trust-seal-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.trust-seal-title {
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: var(--text-navy);
+  line-height: 1.25;
+}
+
+.trust-seal-sub {
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  line-height: 1.2;
+}
+
+/* 7. RODAPÉ INSTITUCIONAL CENTRALIZADO (#0F2942) */
+.site-footer {
+  background-color: var(--text-navy);
+  color: #CBD5E1;
+  padding: 34px 0;
+  text-align: center;
+  border-top: 3px solid var(--red-pharmacy);
+}
+
+.footer-legal-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 22px;
+  list-style: none;
+  margin-bottom: 16px;
+}
+
+.footer-legal-links li a {
+  color: #E2E8F0;
+  font-size: 0.82rem;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+
+.footer-legal-links li a:hover {
+  color: #FFFFFF;
+}
+
+.footer-disclaimer-text {
+  max-width: 680px;
+  margin: 0 auto;
+  font-size: 0.78rem;
+  line-height: 1.55;
+  color: #94A3B8;
+  text-align: center;
+}
+
+/* 8. RESPONSIVIDADE E VISUALIZAÇÃO MOBILE-FIRST (< 768px) */
+@media (max-width: 991px) {
+  .utility-nav {
+    display: none;
+  }
+
+  .pricing-cards-grid {
+    grid-template-columns: 1fr;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  .trust-seals-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .trust-seal-item:nth-child(2) {
+    border-right: none;
+  }
+
+  .trust-seal-item:nth-child(1),
+  .trust-seal-item:nth-child(2) {
+    border-bottom: 1px solid var(--border-card);
+  }
+}
+
+@media (max-width: 767px) {
+  .container,
+  .narrow-container {
+    padding: 0 10px;
+  }
+
+  /* 1. Top Bar compacta em no máximo 2 linhas */
+  .top-bar-bf {
+    padding: 4px 0;
+    font-size: 0.68rem;
+    line-height: 1.25;
+  }
+
+  .top-bar-bf .container {
+    display: block;
+    text-align: center;
+  }
+
+  .top-bar-bf-left,
+  .top-bar-bf-right {
+    display: inline;
+  }
+
+  .top-bar-bf-right::before {
+    content: " • ";
+    color: var(--gold-metallic);
+    font-weight: 700;
+  }
+
+  .top-bar-bf-right {
+    font-size: 0.65rem;
+    white-space: nowrap;
+  }
+
+  /* 2. Cabeçalho DER SPIEGEL no mobile (maior no topo, compacto ao rolar) */
+  .spiegel-brand-bar {
+    padding: 11px 0;
+  }
+
+  .spiegel-brand-bar.is-scrolled {
+    padding: 6px 0;
+  }
+
+  .apotheke-brand-logo {
+    height: 24px;
+    max-width: 155px;
+  }
+
+  .spiegel-brand-bar.is-scrolled .apotheke-brand-logo {
+    height: 19px;
+  }
+
+  .spiegel-brand-bar.is-scrolled .spiegel-sticky-menu-search {
+    width: 24px;
+    margin-right: 9px;
+  }
+
+  .spiegel-sticky-menu-search svg {
+    width: 22px;
+    height: 18px;
+  }
+
+  .spiegel-edition-label {
+    display: none;
+  }
+
+  .utility-ssl-badge {
+    font-size: 0.6rem;
+    padding: 3px 7px;
+    gap: 4px;
+    white-space: nowrap;
+  }
+
+  .utility-ssl-badge svg {
+    width: 10px;
+    height: 10px;
+  }
+
+  .spiegel-nav-bar .container {
+    min-height: 34px;
+  }
+
+  .spiegel-nav-inner {
+    gap: 10px;
+  }
+
+  .spiegel-menu-trigger {
+    font-size: 0.68rem;
+    gap: 5px;
+  }
+
+  .spiegel-menu-trigger svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .nav-divider {
+    height: 15px;
+  }
+
+  .spiegel-carousel-nav {
+    gap: 8px;
+  }
+
+  .inline-category-list {
+    gap: 12px;
+  }
+
+  .inline-category-list li a {
+    font-size: 0.68rem;
+  }
+
+  /* 3. Card Editorial e Conteúdo Acima da Dobra no Mobile */
+  .editorial-section {
+    padding: 10px 0 12px;
+  }
+
+  .spiegel-article-container {
+    padding: 14px 12px 16px;
+    border-radius: 10px;
+  }
+
+  .availability-notice-box {
+    padding: 6px 9px;
+    margin-bottom: 10px;
+    gap: 7px;
+  }
+
+  .notice-icon-badge {
+    width: 15px;
+    height: 15px;
+    font-size: 0.6rem;
+  }
+
+  .notice-content {
+    font-size: 0.65rem;
+    line-height: 1.3;
+  }
+
+  .editorial-headline-wrap {
+    margin-bottom: 10px;
+  }
+
+  .spiegel-kicker {
+    font-size: 0.68rem;
+    margin-bottom: 4px;
+  }
+
+  .spiegel-plus-badge {
+    width: 16px;
+    height: 16px;
+    font-size: 0.75rem;
+    margin-right: 5px;
+    top: -1px;
+  }
+
+  .main-headline {
+    font-size: 0.92rem;
+    line-height: 1.26;
+    margin-bottom: 6px;
+    letter-spacing: -0.3px;
+  }
+
+  .sub-headline {
+    font-size: 0.72rem;
+    line-height: 1.35;
+    letter-spacing: -0.1px;
+  }
+
+  /* 4. Barra do Autor clean em linha única */
+  .author-verification-bar {
+    padding: 7px 0;
+    margin-bottom: 10px;
+    gap: 8px;
+    flex-wrap: nowrap;
+  }
+
+  .author-profile-left {
+    gap: 8px;
+    min-width: 0;
+  }
+
+  .author-avatar-img {
+    width: 32px;
+    height: 32px;
+  }
+
+  .author-name-title {
+    font-size: 0.7rem;
+    line-height: 1.15;
+    white-space: nowrap;
+  }
+
+  .author-credentials {
+    font-size: 0.6rem;
+    line-height: 1.15;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .audio-active-badge {
+    font-size: 0.58rem;
+    padding: 3px 7px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    gap: 4px;
+  }
+
+  .audio-pulse-dot {
+    width: 5px;
+    height: 5px;
+  }
+
+  /* 5. Legenda do Vídeo */
+  .video-source-caption {
+    font-size: 0.64rem;
+    padding-top: 6px;
+    line-height: 1.3;
+  }
+
+  /* 6. Seção de Pacotes e Estoque */
+  #pitch-section {
+    margin-top: 8px;
+    padding-bottom: 32px;
+  }
+
+  .stock-status-banner {
+    padding: 12px 14px;
+    margin-bottom: 16px;
+  }
+
+  .stock-banner-header {
+    gap: 4px;
+    margin-bottom: 8px;
+  }
+
+  .stock-live-indicator {
+    font-size: 0.76rem;
+  }
+
+  .stock-dhl-note {
+    font-size: 0.7rem;
+  }
+
+  .stock-progress-track {
+    height: 8px;
+  }
+
+  /* Visualização Mobile-First: Pacote de 6 Potes na primeira posição (order: -1 no CSS) */
+  .pricing-cards-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .package-card {
+    padding-bottom: 16px;
+    border-radius: 12px;
+  }
+
+  .package-card-6-bottles {
+    order: -1 !important;
+  }
+
+  .package-card-3-bottles {
+    order: 1;
+  }
+
+  .package-card-2-bottles {
+    order: 2;
+  }
+
+  .card-ribbon-header {
+    padding: 8px 10px;
+    font-size: 0.72rem;
+  }
+
+  .ribbon-bf-winner {
+    font-size: 0.75rem;
+  }
+
+  .card-body-inner {
+    padding: 14px 16px 0;
+  }
+
+  .card-duration-title {
+    font-size: 1.2rem;
+  }
+
+  .card-bottles-sub {
+    font-size: 0.78rem;
+  }
+
+  .card-product-image-box {
+    height: 155px;
+    margin: 4px 0 8px;
+  }
+
+  .card-savings-pill {
+    gap: 5px;
+    margin-bottom: 10px;
+  }
+
+  .bf-winner-pill {
+    font-size: 0.68rem;
+    padding: 3px 10px;
+  }
+
+  .savings-tag.tag-6-bottles {
+    font-size: 0.76rem;
+    padding: 3px 12px;
+  }
+
+  .card-price-box {
+    padding: 10px;
+    margin-bottom: 12px;
+  }
+
+  .price-amount {
+    font-size: 1.65rem;
+  }
+
+  .price-per-bottle {
+    font-size: 0.78rem;
+  }
+
+  .price-total-comparison {
+    font-size: 0.78rem;
+    margin-top: 4px;
+  }
+
+  .card-benefits-list {
+    font-size: 0.78rem;
+    margin-bottom: 12px;
+  }
+
+  .card-benefits-list li {
+    padding: 4px 0;
+  }
+
+  .card-cta-footer {
+    padding: 0 16px;
+  }
+
+  .btn-cta-order {
+    padding: 12px 10px;
+    font-size: 0.85rem;
+  }
+
+  .card-guarantee-note {
+    font-size: 0.68rem;
+    margin-top: 6px;
+  }
+
+  /* 7. Selos DACH e Rodapé no Mobile */
+  .trust-seals-grid {
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 20px;
+  }
+
+  .trust-seal-item {
+    padding: 10px 8px;
+    gap: 8px;
+  }
+
+  .trust-seal-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .trust-seal-title {
+    font-size: 0.66rem;
+    line-height: 1.2;
+  }
+
+  .trust-seal-sub {
+    font-size: 0.58rem;
+  }
+
+  .site-footer {
+    padding: 24px 0;
+  }
+
+  .footer-legal-links {
+    gap: 14px;
+    margin-bottom: 12px;
+  }
+
+  .footer-legal-links li a {
+    font-size: 0.74rem;
+  }
+
+  .footer-disclaimer-text {
+    font-size: 0.68rem;
+    line-height: 1.45;
+  }
+}
