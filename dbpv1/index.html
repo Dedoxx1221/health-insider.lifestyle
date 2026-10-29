@@ -17,6 +17,12 @@
 
   <!-- STYLESHEET -->
   <link rel="stylesheet" href="css/style.css">
+
+  <!-- Gate da oferta: fica oculto até o VTurb disparar pitch:time -->
+  <style>
+    [data-gate] { display: none !important; }
+    [data-gate].pitch-liberado { display: block !important; }
+  </style>
   <link rel="icon" type="image/webp" href="images/favicon.webp">
 
   <script>
@@ -493,23 +499,34 @@
 
 <script>
 (function () {
-    const player = document.getElementById(
-        "ab-6ae367cca1db2408a366b3ee"
-    );
+    const player = document.getElementById("ab-6ae367cca1db2408a366b3ee");
+    const secoes = document.querySelectorAll("[data-gate]");
 
     if (!player) {
         console.error("[Pitch] Player VTurb AB não encontrado.");
         return;
     }
 
+    if (!secoes.length) {
+        console.error("[Pitch] Nenhuma seção [data-gate] encontrada.");
+        return;
+    }
+
     let liberado = false;
+
+    // Reforça o bloqueio via JavaScript, além do CSS inline no <head>.
+    secoes.forEach((elemento) => {
+        elemento.classList.remove("pitch-liberado");
+        elemento.style.setProperty("display", "none", "important");
+    });
 
     function liberarOferta() {
         if (liberado) return;
         liberado = true;
 
-        document.querySelectorAll("[data-gate]").forEach((elemento) => {
-            elemento.classList.remove("hidden");
+        secoes.forEach((elemento) => {
+            elemento.classList.add("pitch-liberado");
+            elemento.style.removeProperty("display");
         });
 
         document.querySelectorAll(".atomicat-delay").forEach((elemento) => {
@@ -519,21 +536,11 @@
             elemento.style.removeProperty("opacity");
         });
 
-        const oferta = document.querySelector(
-            ".atomicat-container-fc9d32a"
-        );
+        console.log("[Pitch] Oferta liberada pelo evento pitch:time do VTurb.");
 
+        const oferta = document.getElementById("pitch-section") || secoes[0];
         if (oferta) {
-            console.log("[Pitch] Oferta liberada pelo VTurb.");
-
-            oferta.scrollIntoView({
-                behavior: "smooth",
-                block: "start"
-            });
-        } else {
-            console.warn(
-                "[Pitch] Oferta liberada, mas o container não foi encontrado."
-            );
+            oferta.scrollIntoView({ behavior: "smooth", block: "start" });
         }
     }
 
