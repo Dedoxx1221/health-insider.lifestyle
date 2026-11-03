@@ -1,0 +1,13 @@
+			
+			var mysrc = "https://tracking.buygoods.com/track/?a=13123&amp%3Bfirstcookie=0&amp%3Btracking_redirect=&amp%3Breferrer=https%3A%2F%2Fpagestudio-pro.onrender.com%2F&amp%3Bsessid2=&amp%3Bproduct=tit2%2Ctit3%2Ctit6&amp%3Bvid1=&amp%3Bvid2=&amp%3Bvid3=&amp%3Bcaller_url=https%3A%2F%2Fpagestudio-pro.onrender.com%2Fserve%2Fdd9e0bf8-4755-4847-a779-a6121ec80905%2Findex.html%3Ft%3D1785944551883&caller_url="+encodeURIComponent(window.location.href);
+			if(typeof add_to_cart !== "undefined") 
+			{ 
+				mysrc = mysrc+"&add_to_cart="+add_to_cart;  
+			}
+			var newScript = document.createElement("script");
+			newScript.type = "text/javascript";
+			newScript.async = true;
+			newScript.src = mysrc;
+			var s = document.getElementsByTagName("script")[0];
+			s.parentNode.insertBefore(newScript, s);        
+		
