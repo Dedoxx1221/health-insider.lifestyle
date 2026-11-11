@@ -726,6 +726,11 @@ smartplayer-headline {
   object-fit: contain;
 }
 
+/* Amplia apenas a arte do pacote de 6 potes, preservando a proporção original. */
+.package-card-6-bottles .card-product-img {
+  transform: scale(1.6);
+}
+
 /* Selos de Economia acima da caixa de preço */
 .card-savings-pill {
   display: flex;
@@ -1000,6 +1005,10 @@ smartplayer-headline {
 }
 
 @media (max-width: 767px) {
+  .package-card-6-bottles .card-product-img {
+    transform: scale(1.5);
+  }
+
   .container,
   .narrow-container {
     padding: 0 10px;
