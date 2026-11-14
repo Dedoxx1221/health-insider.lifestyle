@@ -726,9 +726,9 @@ smartplayer-headline {
   object-fit: contain;
 }
 
-/* Amplia apenas a arte do pacote de 6 potes, preservando a proporção original. */
-.package-card-6-bottles .card-product-img {
-  transform: scale(1.6);
+/* O arquivo de 6 potes já inclui os livros; aumenta a área reservada sem sobrepor os selos. */
+.package-card-6-bottles .card-product-image-box {
+  height: 235px;
 }
 
 /* Selos de Economia acima da caixa de preço */
@@ -1005,8 +1005,8 @@ smartplayer-headline {
 }
 
 @media (max-width: 767px) {
-  .package-card-6-bottles .card-product-img {
-    transform: scale(1.5);
+  .package-card-6-bottles .card-product-image-box {
+    height: 190px;
   }
 
   .container,
